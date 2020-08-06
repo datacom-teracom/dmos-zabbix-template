@@ -1,4 +1,35 @@
 # dmos-zabbix-template
-Zabbix template for DmOS Datacom network equipments
+Zabbix templates for DmOS Datacom network equipments
 
 https://share.zabbix.com/network_devices/datacom
+
+## Template DmOS
+
+Used for other DmOS MIBs.
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+## Template DmOS-BGP4-MIB
+
+- Auto-discovering
+- Supports IPv4 and IPv6 BGP sessions
+- Supports IPv4 Unicast, IPv6 Unicast and MPLS VPN objects
+- Supports SNMPv1 and SNMPv2c
+- Supports BGP4-MIB standard MIB and DmOS-BGP4-MIB proprietary MIB
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Script Macros:
+
+- {#IP_ADDRESS_TYPE} - IP address type (e.g., IPv4, IPv6)
+- {#IP_ADDRESS_SIZE} - IP address size (e.g., 4 for IPv4, 16 for IPv6)
+- {#IP_ADDRESS} - IP address in friendly format (e.g., 1.1.1.1 for IPv4 address or 2001:2:a80:218::2 for IPv6 address)
+- {#IP_ADDRESS_SNMP} - IP address used by SNMP to get OIDs (e.g., 1.1.1.1 for IPv4 or 32.1.0.2.10.128.2.24.0.0.0.0.0.0.0.2 for 2001:2:a80:218::2 IPv6 address)
+- {#AFI} - (AFI) Address Family Identifiers (e.g., IPv4, IPv6)
+- {#SAFI} - (SAFI) Subsequent Address Family Identifiers (e.g., unicast , mplsVpn)
+
+To discovery process works it is necessary upload the script file "dmos_bgp4_mib.py" to your Zabbix server in external scripts directory, also it is necessary the MIB file DMOS-BGP4-MIB.mib. Please copy the MIB file from the equipment using the DmOS command named "copy mibs" and upload for your Zabbix server.
