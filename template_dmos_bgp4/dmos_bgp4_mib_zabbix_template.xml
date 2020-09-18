@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2020-08-06T17:13:29Z</date>
+    <date>2020-08-28T15:05:14Z</date>
     <groups>
+        <group>
+            <name>DM - Templates</name>
+        </group>
         <group>
             <name>Templates/Network devices</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>DMOS-BGP4-MIB</template>
-            <name>DMOS-BGP4-MIB</name>
+            <template>DM Template - DMOS-BGP4-MIB</template>
+            <name>DM Template - DMOS-BGP4-MIB</name>
+            <description>Template for standard BGP-4-MIB and DmOS proprietary MIB.</description>
             <groups>
+                <group>
+                    <name>DM - Templates</name>
+                </group>
                 <group>
                     <name>Templates/Network devices</name>
                 </group>
@@ -119,7 +126,7 @@
                                 <graph_item>
                                     <color>6C59DC</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersInPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -127,7 +134,7 @@
                                     <sortorder>1</sortorder>
                                     <color>1A7C11</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersInAcceptedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -135,7 +142,7 @@
                                     <sortorder>2</sortorder>
                                     <color>AC8C14</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersInActivePrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -143,7 +150,7 @@
                                     <sortorder>3</sortorder>
                                     <color>F63100</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersInPrefixesDeniedByPol.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -151,7 +158,7 @@
                                     <sortorder>4</sortorder>
                                     <color>FC6EA3</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersInRejectedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -159,7 +166,7 @@
                                     <sortorder>5</sortorder>
                                     <color>FFA500</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersOutPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
@@ -167,7 +174,7 @@
                                     <sortorder>6</sortorder>
                                     <color>A54F10</color>
                                     <item>
-                                        <host>DMOS-BGP4-MIB</host>
+                                        <host>DM Template - DMOS-BGP4-MIB</host>
                                         <key>bgpPrefixCountersOutAdvertisedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                                     </item>
                                 </graph_item>
