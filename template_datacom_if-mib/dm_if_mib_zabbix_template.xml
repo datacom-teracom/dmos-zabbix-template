@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2020-09-08T19:02:31Z</date>
+    <date>2022-12-01T14:17:32Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -354,7 +354,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
 and&#13;
 ({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}&lt;&gt;2)</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
-                            <recovery_expression>({DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].change()}&gt;0 and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].prev()}&gt;0) or&#13;
+                            <recovery_expression>({DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].change()}&gt;0 and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].prev()}&gt;=0) or&#13;
 ({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2)</recovery_expression>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Ethernet has changed to lower speed than it was before</name>
                             <opdata>Current reported speed: {ITEM.LASTVALUE1}</opdata>
@@ -371,10 +371,11 @@ and&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>({DM Template - Datacom IF-MIB:net.if[ifHCInOctets.{#SNMPINDEX}].avg(5m)}&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}) or&#13;
-({DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()})and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}&gt;0</expression>
+({DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}) and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}&gt;0</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
                             <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifHCInOctets.{#SNMPINDEX}].avg(5m)}&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()} and&#13;
-{DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}</recovery_expression>
+{DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()} or&#13;
+{DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2</recovery_expression>
                             <name>Interface {#IFDESCR}({#IFALIAS}): High bandwidth usage ( &gt; {$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}% )</name>
                             <opdata>In: {ITEM.LASTVALUE1}, Out: {ITEM.LASTVALUE3}, speed: {ITEM.LASTVALUE2}</opdata>
                             <priority>WARNING</priority>
