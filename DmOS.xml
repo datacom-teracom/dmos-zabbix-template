@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2020-08-28T15:35:53Z</date>
+    <date>2022-12-08T16:38:14Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -29,138 +29,12 @@
             </applications>
             <items>
                 <item>
-                    <name>DmOS - cpuCore0FiveSecondsActive</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.4.1.3.1.2.1.1.49.0</snmp_oid>
-                    <key>cpuCoreFiveSecondsActive</key>
-                    <delay>30</delay>
-                    <value_type>FLOAT</value_type>
-                    <units>%</units>
-                </item>
-                <item>
-                    <name>DmOS - cpuCore1FiveSecondsActive</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.4.1.3.1.2.1.1.49.1</snmp_oid>
-                    <key>cpuCoreOneMinuteActive</key>
-                    <delay>30</delay>
-                    <value_type>FLOAT</value_type>
-                    <units>%</units>
-                </item>
-                <item>
-                    <name>DmOS - cpuLoadFiveSecondsActive</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.4.1.2.1.2.1.1.49</snmp_oid>
-                    <key>cpuLoadFiveSecondsActive</key>
-                    <delay>30</delay>
-                    <value_type>FLOAT</value_type>
-                    <units>%</units>
-                    <triggers>
-                        <trigger>
-                            <expression>{avg(5m)}&gt;80</expression>
-                            <name>{HOST.NAME} CPU Load High &gt; 80% Usage</name>
-                            <priority>WARNING</priority>
-                            <description>{HOST.NAME} CPU usage greater than 80%</description>
-                        </trigger>
-                    </triggers>
-                </item>
-                <item>
-                    <name>DmOS - cpuLoadFiveSecondsIdle</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.1.2.1.3.1.49</snmp_oid>
-                    <key>cpuLoadFiveSecondsIdle</key>
-                    <delay>30</delay>
-                    <value_type>FLOAT</value_type>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsAvailable</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.7.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsAvailable</key>
-                    <delay>30</delay>
-                    <triggers>
-                        <trigger>
-                            <expression>{prev(0)}&lt;100000000</expression>
-                            <name>{HOST.NAME} - Memory Available Low &lt; 100MB</name>
-                            <priority>HIGH</priority>
-                        </trigger>
-                    </triggers>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsBuffered</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.5.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsBuffered</key>
-                    <delay>30</delay>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsCached</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.6.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsCached</key>
-                    <delay>30</delay>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsFree</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.4.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsFree</key>
-                    <delay>30</delay>
-                    <triggers>
-                        <trigger>
-                            <expression>{prev(0)}&lt;100000000</expression>
-                            <name>{HOST.NAME} - Memory Free Low &lt; 100MB</name>
-                            <priority>WARNING</priority>
-                            <description>{HOST.NAME} - Memory Free Low &lt; 100MB</description>
-                        </trigger>
-                    </triggers>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsSlabRecl</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.8.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsSlabRecl</key>
-                    <delay>30</delay>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsSlabUnrecl</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.9.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsSlabUnrecl</key>
-                    <delay>30</delay>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsTotal</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.2.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsTotal</key>
-                    <delay>30</delay>
-                </item>
-                <item>
-                    <name>DmOS - memoryFiveSecondsUsed</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>1.3.6.1.4.1.3709.3.6.4.2.2.1.3.1.1.49</snmp_oid>
-                    <key>memoryFiveSecondsUsed</key>
-                    <delay>30</delay>
-                </item>
-                <item>
                     <name>Device contact details</name>
                     <type>SNMPV2</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>SNMPv2-MIB::sysContact.0</snmp_oid>
                     <key>sysContact</key>
-                    <delay>100</delay>
+                    <delay>60m</delay>
                     <history>7d</history>
                     <trends>0</trends>
                     <value_type>CHAR</value_type>
@@ -178,7 +52,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>SNMPv2-MIB::sysDescr.0</snmp_oid>
                     <key>sysDescr</key>
-                    <delay>3600</delay>
+                    <delay>60m</delay>
                     <history>7d</history>
                     <trends>0</trends>
                     <value_type>CHAR</value_type>
@@ -196,7 +70,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>SNMPv2-MIB::sysLocation.0</snmp_oid>
                     <key>sysLocation</key>
-                    <delay>3600</delay>
+                    <delay>60m</delay>
                     <history>7d</history>
                     <trends>0</trends>
                     <value_type>CHAR</value_type>
@@ -214,7 +88,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>SNMPv2-MIB::sysName.0</snmp_oid>
                     <key>sysName</key>
-                    <delay>3600</delay>
+                    <delay>60m</delay>
                     <history>7d</history>
                     <trends>0</trends>
                     <value_type>CHAR</value_type>
@@ -232,7 +106,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>SNMPv2-MIB::sysUpTime.0</snmp_oid>
                     <key>sysUpTime</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <history>7d</history>
                     <units>uptime</units>
                     <description>The time since the network management portion of the system was last re-initialized.</description>
@@ -256,7 +130,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::cpuCoreFiveSecondsActive]</snmp_oid>
                     <key>snmp.discovery.cpu.cores</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
                             <name>Active CPU core last 5 minutes</name>
@@ -264,14 +138,23 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesActive[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
                                 </application>
                             </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{last()}&gt;80</expression>
+                                    <name>{HOST.NAME} CPU Core High Usage &gt; 80% for 5 minutes</name>
+                                    <priority>WARNING</priority>
+                                    <description>{HOST.NAME} CPU Core usage greater than 80%</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <name>Idle CPU core last 5 minutes</name>
@@ -279,9 +162,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesIdle.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesIdle[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -294,9 +178,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesInterrupt.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesInterrupt[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -309,9 +194,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesNice.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesNIce[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -324,9 +210,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSoftirq.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesSoftirq[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -339,9 +226,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSystem.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesSystem[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -354,9 +242,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesUser.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesUser[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -369,129 +258,10 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesWait.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesWait[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Active CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsActive.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsActive[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Idle CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsIdle[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Interrupt CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsInterrupt.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsInterrupt[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Nice CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsNice.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsNice[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Softirq CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsSoftirq.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsSoftirq[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>System CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsSystem.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsSystem[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>User CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsUser.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsUser[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Wait CPU core last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveSecondsWait.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveSecondsWait[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -504,9 +274,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteActive[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -519,9 +289,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteIdle.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteIdle[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -534,9 +304,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteInterrupt.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteInterrupt[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -549,9 +319,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteNice.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteNice[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -564,9 +334,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSoftirq.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteSoftirq[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -579,9 +349,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSystem.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteSystem[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -594,9 +364,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteUser.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteUser[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -609,9 +379,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteWait.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteWait[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -625,6 +395,7 @@
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteActive[{#SNMPINDEX}]</key>
@@ -633,6 +404,7 @@
                                 <graph_item>
                                     <sortorder>1</sortorder>
                                     <color>F63100</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteIdle[{#SNMPINDEX}]</key>
@@ -641,6 +413,7 @@
                                 <graph_item>
                                     <sortorder>2</sortorder>
                                     <color>2774A4</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteInterrupt[{#SNMPINDEX}]</key>
@@ -649,6 +422,7 @@
                                 <graph_item>
                                     <sortorder>3</sortorder>
                                     <color>A54F10</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteNice[{#SNMPINDEX}]</key>
@@ -657,6 +431,7 @@
                                 <graph_item>
                                     <sortorder>4</sortorder>
                                     <color>FC6EA3</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteSoftirq[{#SNMPINDEX}]</key>
@@ -665,6 +440,7 @@
                                 <graph_item>
                                     <sortorder>5</sortorder>
                                     <color>6C59DC</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteSystem[{#SNMPINDEX}]</key>
@@ -673,6 +449,7 @@
                                 <graph_item>
                                     <sortorder>6</sortorder>
                                     <color>AC8C14</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteUser[{#SNMPINDEX}]</key>
@@ -681,6 +458,7 @@
                                 <graph_item>
                                     <sortorder>7</sortorder>
                                     <color>611F27</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreOneMinuteWait[{#SNMPINDEX}]</key>
@@ -693,6 +471,7 @@
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesActive[{#SNMPINDEX}]</key>
@@ -701,6 +480,7 @@
                                 <graph_item>
                                     <sortorder>1</sortorder>
                                     <color>F63100</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesIdle[{#SNMPINDEX}]</key>
@@ -709,6 +489,7 @@
                                 <graph_item>
                                     <sortorder>2</sortorder>
                                     <color>2774A4</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesInterrupt[{#SNMPINDEX}]</key>
@@ -717,6 +498,7 @@
                                 <graph_item>
                                     <sortorder>3</sortorder>
                                     <color>A54F10</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesNIce[{#SNMPINDEX}]</key>
@@ -725,6 +507,7 @@
                                 <graph_item>
                                     <sortorder>4</sortorder>
                                     <color>FC6EA3</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesSoftirq[{#SNMPINDEX}]</key>
@@ -733,6 +516,7 @@
                                 <graph_item>
                                     <sortorder>5</sortorder>
                                     <color>6C59DC</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesSystem[{#SNMPINDEX}]</key>
@@ -741,6 +525,7 @@
                                 <graph_item>
                                     <sortorder>6</sortorder>
                                     <color>AC8C14</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesUser[{#SNMPINDEX}]</key>
@@ -749,77 +534,10 @@
                                 <graph_item>
                                     <sortorder>7</sortorder>
                                     <color>611F27</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesWait[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>CPU Core {#SNMPINDEX} Last 5 Seconds</name>
-                            <graph_items>
-                                <graph_item>
-                                    <color>1A7C11</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsActive[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsIdle[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>2</sortorder>
-                                    <color>2774A4</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsInterrupt[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <color>A54F10</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsNice[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>4</sortorder>
-                                    <color>FC6EA3</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsSoftirq[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>5</sortorder>
-                                    <color>6C59DC</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsSystem[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>6</sortorder>
-                                    <color>AC8C14</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsUser[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>7</sortorder>
-                                    <color>611F27</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveSecondsWait[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -832,7 +550,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::cpuLoadFiveSecondsActive]</snmp_oid>
                     <key>snmp.discovery.cpu.load</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
                             <name>Active CPU load last 5 minutes</name>
@@ -840,59 +558,23 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuLoadFiveMinutesActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuLoadFiveMinutesActive[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
                                 </application>
                             </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Idle CPU load last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuLoadFiveMinutesIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuLoadFiveMinutesIdle[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Active CPU load last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuLoadFiveSecondsActive.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuLoadFiveSecondsActive[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Idle CPU load last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuLoadFiveSecondsIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuLoadFiveSecondsIdle[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{last()}&gt;80</expression>
+                                    <name>{HOST.NAME} CPU Load High Usage &gt; 80% for 5 minutes</name>
+                                    <priority>WARNING</priority>
+                                    <description>{HOST.NAME} CPU Load usage greater than 80%</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <name>Active CPU load last 1 minute</name>
@@ -900,24 +582,9 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuLoadOneMinuteActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuLoadOneMinuteActive[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
                             <history>7d</history>
                             <trends>7d</trends>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Idle CPU load last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuLoadOneMinuteIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuLoadOneMinuteIdle[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
+                            <units>%</units>
                             <applications>
                                 <application>
                                     <name>System Monitor</name>
@@ -931,17 +598,10 @@
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuLoadOneMinuteActive[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuLoadOneMinuteIdle[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -951,37 +611,10 @@
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
+                                    <calc_fnc>MAX</calc_fnc>
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuLoadFiveMinutesActive[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuLoadFiveMinutesIdle[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>CPU Load {#SNMPINDEX} Last 5 Seconds</name>
-                            <graph_items>
-                                <graph_item>
-                                    <color>1A7C11</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuLoadFiveSecondsActive[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuLoadFiveSecondsIdle[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -994,30 +627,15 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-HW-MONITOR-MIB::fanDescription]</snmp_oid>
                     <key>snmp.discovery.fan</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Power</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::fanControl.{#SNMPINDEX}</snmp_oid>
-                            <key>fanControl[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
-                            <history>7d</history>
-                            <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>{#SNMPVALUE} - Description</name>
+                            <name>FAN {#SNMPVALUE} Description</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanDescription.{#SNMPINDEX}</snmp_oid>
                             <key>fanDescription[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
@@ -1028,40 +646,46 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Read Error</name>
+                            <name>FAN {#SNMPVALUE} Read Error</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedReadError.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeedReadError[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <applications>
                                 <application>
                                     <name>Hardware Monitor</name>
                                 </application>
                             </applications>
+                            <valuemap>
+                                <name>DmOS-HW-MONITOR Read Error</name>
+                            </valuemap>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Status</name>
+                            <name>FAN {#SNMPVALUE} Status</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedStatus.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeedStatus[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <applications>
                                 <application>
                                     <name>Hardware Monitor</name>
                                 </application>
                             </applications>
+                            <valuemap>
+                                <name>DmOS-HW-MONITOR Environment Sensor Status</name>
+                            </valuemap>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Speed</name>
+                            <name>FAN {#SNMPVALUE} Speed</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeed.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeed[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <units>RPM</units>
                             <applications>
@@ -1073,19 +697,7 @@
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>{#SNMPVALUE} - Power</name>
-                            <graph_items>
-                                <graph_item>
-                                    <color>1A7C11</color>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>fanControl[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>{#SNMPVALUE} - Speed</name>
+                            <name>FAN {#SNMPVALUE} Speed</name>
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
@@ -1104,15 +716,34 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::memoryFiveSecondsTotal]</snmp_oid>
                     <key>snmp.discovery.memory</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
-                            <name>Available memory last 5 seconds</name>
+                            <name>Available memory last 1 minute</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsAvailable.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsAvailable[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteAvailable.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteAvailable[{#SNMPINDEX}]</key>
+                            <history>7d</history>
+                            <applications>
+                                <application>
+                                    <name>System Monitor</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{last()}&lt;100000000</expression>
+                                    <name>{HOST.NAME} - Memory Available Low &lt; 100MB</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Buffered memory last 1 minute</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteBuffered.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteBuffered[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1121,12 +752,11 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>Buffered memory last 5 seconds</name>
+                            <name>Cached memory last 1 minute</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsBuffered.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsBuffered[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteCached.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteCached[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1135,12 +765,32 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>Cached memory last 5 seconds</name>
+                            <name>Free memory last 1 minute</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsCached.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsCached[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteFree.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteFree[{#SNMPINDEX}]</key>
+                            <history>7d</history>
+                            <applications>
+                                <application>
+                                    <name>System Monitor</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{last()}&lt;100000000</expression>
+                                    <name>{HOST.NAME} - Memory Free Low &lt; 100MB</name>
+                                    <priority>WARNING</priority>
+                                    <description>{HOST.NAME} - Memory Free Low &lt; 100MB</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Slab Reclaimed last 1 minute</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabRecl.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteSlabRecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1149,12 +799,11 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>Free memory last 5 seconds</name>
+                            <name>Slab Unreclaimed last 1 minute</name>
                             <type>SNMPV2</type>
-                            <snmp_community>public</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsFree.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsFree[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabUnrecl.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteSlabUnrecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1163,12 +812,11 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>Slab Reclaimed last 5 seconds</name>
+                            <name>Total memory last 1 minute</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsSlabRecl.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsSlabRecl[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteTotal.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteTotal[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1177,40 +825,11 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>Slab Unreclaimed last 5 seconds</name>
+                            <name>Used memory last 1 minute</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsSlabUnrecl.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsSlabUnrecl[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Total memory last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsTotal.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsTotal[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
-                            <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Used memory last 5 seconds</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryFiveSecondsUsed.{#SNMPINDEX}</snmp_oid>
-                            <key>memoryFiveSecondsUsed[{#SNMPINDEX}]</key>
-                            <delay>5</delay>
+                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteUsed.{#SNMPINDEX}</snmp_oid>
+                            <key>memoryOneMinuteUsed[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -1221,14 +840,14 @@
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Memory Status {#SNMPINDEX} Last 5 Seconds</name>
+                            <name>Memory Status Last 1 minute</name>
                             <graph_items>
                                 <graph_item>
                                     <drawtype>FILLED_REGION</drawtype>
                                     <color>1A7C11</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsAvailable[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteAvailable[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1236,7 +855,7 @@
                                     <color>F63100</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsBuffered[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteBuffered[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1244,7 +863,7 @@
                                     <color>2774A4</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsCached[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteCached[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1252,7 +871,7 @@
                                     <color>A54F10</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsFree[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteFree[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1260,7 +879,7 @@
                                     <color>FC6EA3</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsSlabRecl[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteSlabRecl[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1268,7 +887,7 @@
                                     <color>6C59DC</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsSlabUnrecl[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteSlabUnrecl[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1276,7 +895,7 @@
                                     <color>AC8C14</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsTotal[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteTotal[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1284,7 +903,7 @@
                                     <color>611F27</color>
                                     <item>
                                         <host>DM Template - DmOS</host>
-                                        <key>memoryFiveSecondsUsed[{#SNMPINDEX}]</key>
+                                        <key>memoryOneMinuteUsed[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1297,15 +916,15 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-HW-MONITOR-MIB::temperatureSensorDescription]</snmp_oid>
                     <key>snmp.discovery.temp.sensor</key>
-                    <delay>60</delay>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Current Temperature</name>
+                            <name>Sensor {#SNMPVALUE} - Current Temperature</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorCurrentTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorCurrentTemperature[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
@@ -1322,12 +941,12 @@
                             </preprocessing>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Description</name>
+                            <name>Sensor {#SNMPVALUE} - Description</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorDescription.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorDescription[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
@@ -1338,12 +957,12 @@
                             </applications>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Hyst Temperature</name>
+                            <name>Sensor {#SNMPVALUE} - Hysteresis Temperature</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorHysteresis.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorHysteresis[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
@@ -1360,12 +979,12 @@
                             </preprocessing>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Max Temperature</name>
+                            <name>Sensor {#SNMPVALUE} - Max Temperature</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMaxTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorMaxTemperature[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
@@ -1382,12 +1001,12 @@
                             </preprocessing>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Min Temperature</name>
+                            <name>Sensor {#SNMPVALUE} - Min Temperature</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMinTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorMinTemperature[{#SNMPINDEX}]</key>
-                            <delay>60</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
@@ -1404,23 +1023,26 @@
                             </preprocessing>
                         </item_prototype>
                         <item_prototype>
-                            <name>{#SNMPVALUE} - Read Error</name>
+                            <name>Sensor {#SNMPVALUE} - Read Error</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorTemperatureReadError.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorTemperatureReadError[{#SNMPINDEX}]</key>
-                            <delay>10</delay>
+                            <delay>5m</delay>
                             <history>7d</history>
                             <applications>
                                 <application>
                                     <name>Hardware Monitor</name>
                                 </application>
                             </applications>
+                            <valuemap>
+                                <name>DmOS-HW-MONITOR Read Error</name>
+                            </valuemap>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Temperature {#SNMPVALUE}</name>
+                            <name>Sensor {#SNMPVALUE} Temperature</name>
                             <graph_items>
                                 <graph_item>
                                     <color>1A7C11</color>
@@ -1454,79 +1076,6 @@
     </templates>
     <graphs>
         <graph>
-            <name>CPU Active</name>
-            <ymin_type_1>FIXED</ymin_type_1>
-            <ymax_type_1>FIXED</ymax_type_1>
-            <graph_items>
-                <graph_item>
-                    <drawtype>GRADIENT_LINE</drawtype>
-                    <color>FF3333</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>cpuLoadFiveSecondsActive</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>BOLD_LINE</drawtype>
-                    <color>00C800</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>cpuCoreFiveSecondsActive</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>BOLD_LINE</drawtype>
-                    <color>0000C8</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>cpuCoreOneMinuteActive</key>
-                    </item>
-                </graph_item>
-            </graph_items>
-        </graph>
-        <graph>
-            <name>Memory</name>
-            <graph_items>
-                <graph_item>
-                    <drawtype>GRADIENT_LINE</drawtype>
-                    <color>00C800</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>memoryFiveSecondsAvailable</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>BOLD_LINE</drawtype>
-                    <color>0000C8</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>memoryFiveSecondsFree</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>BOLD_LINE</drawtype>
-                    <color>EEEE00</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>memoryFiveSecondsCached</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>BOLD_LINE</drawtype>
-                    <color>FF3333</color>
-                    <item>
-                        <host>DM Template - DmOS</host>
-                        <key>memoryFiveSecondsUsed</key>
-                    </item>
-                </graph_item>
-            </graph_items>
-        </graph>
-        <graph>
             <name>Uptime</name>
             <show_work_period>NO</show_work_period>
             <show_triggers>NO</show_triggers>
@@ -1541,4 +1090,48 @@
             </graph_items>
         </graph>
     </graphs>
+    <value_maps>
+        <value_map>
+            <name>DmOS-HW-MONITOR Environment Sensor Status</name>
+            <mappings>
+                <mapping>
+                    <value>-1</value>
+                    <newvalue>Error</newvalue>
+                </mapping>
+                <mapping>
+                    <value>-2</value>
+                    <newvalue>Fail</newvalue>
+                </mapping>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Normal</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>High</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Low</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Critical</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>DmOS-HW-MONITOR Read Error</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Abnormal</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Normal</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
 </zabbix_export>
