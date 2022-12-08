@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2020-08-28T15:05:14Z</date>
+    <date>2022-12-07T20:05:04Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -33,6 +33,7 @@
                     <name>DMOS-BGP4 Discovery - Prefix Counters Table</name>
                     <type>EXTERNAL</type>
                     <key>dmos_bgp4_mib.py[&quot;{HOST.CONN}&quot;, &quot;{$SNMP_COMMUNITY}&quot;]</key>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
                             <name>BGP In Accepted Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
@@ -40,6 +41,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInAcceptedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInAcceptedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -52,6 +54,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInActivePrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInActivePrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -64,6 +67,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -76,6 +80,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixesDeniedByPol.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInPrefixesDeniedByPol.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -88,6 +93,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInRejectedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInRejectedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -100,6 +106,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutAdvertisedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersOutAdvertisedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -112,6 +119,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersOutPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -188,6 +196,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},BGP4-MIB::bgpPeerRemoteAddr]</snmp_oid>
                     <key>snmp.discovery.bgp.peer.table</key>
+                    <delay>60m</delay>
                     <item_prototypes>
                         <item_prototype>
                             <name>BGP Established Transitions for Peer {#SNMPVALUE}</name>
@@ -195,6 +204,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerFsmEstablishedTransitions.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerFsmEstablishedTransitions.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -207,6 +217,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerInTotalMessages.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerInTotalMessages.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -219,6 +230,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerInUpdates.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerInUpdates.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -231,6 +243,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerOutTotalMessages.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerOutTotalMessages.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -243,6 +256,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerOutUpdates.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerOutUpdates.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>
@@ -255,6 +269,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>BGP4-MIB::bgpPeerState.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerState.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
                             <applications>
                                 <application>
                                     <name>BGP</name>

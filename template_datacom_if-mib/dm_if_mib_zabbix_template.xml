@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2022-12-01T14:17:32Z</date>
+    <date>2022-12-07T20:04:19Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -35,6 +35,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#IFOPERSTATUS},ifOperStatus,{#IFADMINSTATUS},ifAdminStatus,{#IFALIAS},ifAlias,{#IFDESCR},ifDescr]</snmp_oid>
                     <key>net.if.discovery</key>
+                    <delay>60m</delay>
                     <filter>
                         <evaltype>AND</evaltype>
                         <conditions>
@@ -203,8 +204,8 @@
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound unicast packets</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>ifInUnicastPkts.{#SNMPINDEX}</snmp_oid>
-                            <key>net.if[ifInUnicastPkts.{#SNMPINDEX}]</key>
+                            <snmp_oid>ifInUcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <key>net.if[ifInUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -332,8 +333,8 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound unicast packets</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>ifOutUnicastPkts.{#SNMPINDEX}</snmp_oid>
-                            <key>net.if[ifOutUnicastPkts.{#SNMPINDEX}]</key>
+                            <snmp_oid>ifOutUcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <key>net.if[ifOutUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <applications>
                                 <application>
@@ -503,7 +504,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                                     <color>00CCFF</color>
                                     <item>
                                         <host>DM Template - Datacom IF-MIB</host>
-                                        <key>net.if[ifOutUnicastPkts.{#SNMPINDEX}]</key>
+                                        <key>net.if[ifOutUcastPkts.{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -543,7 +544,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                                     <color>1A7C11</color>
                                     <item>
                                         <host>DM Template - Datacom IF-MIB</host>
-                                        <key>net.if[ifInUnicastPkts.{#SNMPINDEX}]</key>
+                                        <key>net.if[ifInUcastPkts.{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
