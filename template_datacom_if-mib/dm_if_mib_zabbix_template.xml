@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2022-12-07T20:04:19Z</date>
+    <date>2022-12-13T17:03:54Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -50,6 +50,11 @@
                                 <value>{$NET.IF.IFADMINSTATUS.NOT_MATCHES}</value>
                                 <operator>NOT_MATCHES_REGEX</operator>
                                 <formulaid>A</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#IFOPERSTATUS}</macro>
+                                <value>^u|^1</value>
+                                <formulaid>C</formulaid>
                             </condition>
                         </conditions>
                     </filter>
