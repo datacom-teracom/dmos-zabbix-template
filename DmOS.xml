@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2022-12-08T16:38:14Z</date>
+    <date>2022-12-13T17:05:35Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -157,22 +157,6 @@
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <name>Idle CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreFiveMinutesIdle[{#SNMPINDEX}]</key>
-                            <delay>5m</delay>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
                             <name>Interrupt CPU core last 5 minutes</name>
                             <type>SNMPV2</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -274,21 +258,6 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteActive[{#SNMPINDEX}]</key>
-                            <history>7d</history>
-                            <trends>7d</trends>
-                            <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Idle CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteIdle.{#SNMPINDEX}</snmp_oid>
-                            <key>cpuCoreOneMinuteIdle[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
@@ -402,15 +371,6 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <calc_fnc>MAX</calc_fnc>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreOneMinuteIdle[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>2</sortorder>
                                     <color>2774A4</color>
                                     <calc_fnc>MAX</calc_fnc>
@@ -475,15 +435,6 @@
                                     <item>
                                         <host>DM Template - DmOS</host>
                                         <key>cpuCoreFiveMinutesActive[{#SNMPINDEX}]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <color>F63100</color>
-                                    <calc_fnc>MAX</calc_fnc>
-                                    <item>
-                                        <host>DM Template - DmOS</host>
-                                        <key>cpuCoreFiveMinutesIdle[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -776,14 +727,6 @@
                                     <name>System Monitor</name>
                                 </application>
                             </applications>
-                            <trigger_prototypes>
-                                <trigger_prototype>
-                                    <expression>{last()}&lt;100000000</expression>
-                                    <name>{HOST.NAME} - Memory Free Low &lt; 100MB</name>
-                                    <priority>WARNING</priority>
-                                    <description>{HOST.NAME} - Memory Free Low &lt; 100MB</description>
-                                </trigger_prototype>
-                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <name>Slab Reclaimed last 1 minute</name>
@@ -840,7 +783,7 @@
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Memory Status Last 1 minute</name>
+                            <name>Memory Status {#SNMPINDEX} Last 1 minute</name>
                             <graph_items>
                                 <graph_item>
                                     <drawtype>FILLED_REGION</drawtype>
