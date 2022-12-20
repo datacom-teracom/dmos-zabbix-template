@@ -1,11 +1,10 @@
 # dmos-zabbix-template
-Zabbix templates for DmOS Datacom network equipments
 
-https://share.zabbix.com/network_devices/datacom
+Zabbix templates for DmOS Datacom network equipments
 
 ## Template DmOS
 
-Used for other DmOS MIBs.
+Used for General DmOS MIBs (SNMP System, CPU, Memory, FAN and Temperature).
 
 ##### Zabbix Macros:
 
@@ -13,7 +12,7 @@ Used for other DmOS MIBs.
 
 ## Template Datacom IF-MIB
 
-Used for all Datacom platforms.
+Used for all Datacom platforms and other vendors.
 
 ##### Zabbix Macros:
 
@@ -56,3 +55,14 @@ To discovery process works it is necessary upload the script file "dmos_bgp4_mib
 server in external scripts directory, also it is necessary the MIB file DMOS-BGP4-MIB.mib. Please
 copy the MIB file from the equipment using the DmOS command named "copy mibs" and upload for your
 Zabbix server.
+
+## Template Datacom EAPS
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#EAPS_ID} - EAPS Domain ID
+- {#EAPS_NAME} - EAPS Domain Name
