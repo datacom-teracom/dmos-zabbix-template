@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2022-12-20T12:36:00Z</date>
+    <date>2022-12-20T14:55:06Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -144,16 +144,17 @@
                             <valuemap>
                                 <name>DmOS-EAPS-MIB Domain State</name>
                             </valuemap>
-                            <trigger_prototypes>
-                                <trigger_prototype>
-                                    <expression>{last()}&lt;&gt;2</expression>
-                                    <name>EAPS {#EAPS_ID} ({#EAPS_NAME}) domain is not complete</name>
-                                    <priority>HIGH</priority>
-                                    <description>Alarm if EAPS domain state is different from Complete.</description>
-                                </trigger_prototype>
-                            </trigger_prototypes>
                         </item_prototype>
                     </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{DM Template - DMOS-EAPS-MIB:eapsDomainMode.[{#SNMPINDEX}].last()}=0 and {DM Template - DMOS-EAPS-MIB:eapsDomainState.[{#SNMPINDEX}].last()}&lt;&gt;2</expression>
+                            <name>EAPS {#EAPS_ID} ({#EAPS_NAME}) domain is not complete</name>
+                            <priority>HIGH</priority>
+                            <description>Alarm if EAPS domain state in Master equipment is different from Complete.</description>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                    </trigger_prototypes>
                 </discovery_rule>
             </discovery_rules>
         </template>
