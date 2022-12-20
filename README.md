@@ -56,7 +56,7 @@ server in external scripts directory, also it is necessary the MIB file DMOS-BGP
 copy the MIB file from the equipment using the DmOS command named "copy mibs" and upload for your
 Zabbix server.
 
-## Template Datacom EAPS
+## Template DmOS-EAPS-MIB
 
 ##### Zabbix Macros:
 
