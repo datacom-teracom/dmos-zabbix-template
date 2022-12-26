@@ -66,3 +66,13 @@ Zabbix server.
 
 - {#EAPS_ID} - EAPS Domain ID
 - {#EAPS_NAME} - EAPS Domain Name
+
+## Template DmOS-ERPS-MIB
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#ERPS_RING_ID} - ERPS Ring ID
