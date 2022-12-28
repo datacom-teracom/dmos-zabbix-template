@@ -1,6 +1,11 @@
 # dmos-zabbix-template
 
-Zabbix templates for DmOS Datacom network equipments
+Zabbix templates for DmOS Datacom network equipments.
+
+These templates are tested in Zabbix 4.4.0 version and are supported in newer versions.
+
+To discovery process works it is necessary the MIB files in Zabbix. Please copy the MIB files
+from the equipment using the DmOS command named "copy mibs" and upload for your Zabbix server.
 
 ## Template DmOS
 
@@ -24,9 +29,6 @@ Used for all Datacom platforms and other vendors.
 - {#IFADMINSTATUS} - Interface Administrative Status
 - {#IFALIAS} - Interface description
 - {#IFDESCR} - Interface name
-
-To discovery process works it is necessary the MIB file IF-MIB.mib. Please copy the MIB file from
-the equipment using the DmOS command named "copy mibs" and upload for your Zabbix server.
 
 ## Template DmOS-BGP4-MIB
 
