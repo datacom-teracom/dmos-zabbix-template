@@ -78,3 +78,30 @@ Zabbix server.
 ##### Zabbix Discovery Macros:
 
 - {#ERPS_RING_ID} - ERPS Ring ID
+
+## Template DmOS GPON
+
+Used for GPON-ONU-IF-MIB - (ONU status, ONU statistics, ONU power, ONU uptime ).
+
+By default the template has ONU statistics disabled. If you need to monitor, enable on demand.
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#ONUIFDESCR} -ONU description
+- {#ONUIFNAME} - ONU name
+
+## Template Grafana
+
+DATACOM provides a Grafana JSON template where it is possible to validate some information:
+ - Sum of ONUs per PON port
+ - Sum of all ONUs on the Chassis
+ - Sum of all DOWN and UP ONUs per PON port and Chassis
+ - CPU; Memory; GPON interfaces
+ - Ethernet interface traffic
+
+ For more details visit the link:
+ https://www.datacom.com.br/pt/blog/98/monitoramento-dos-equipamentos-dmos-via-zabbix-e-grafana
