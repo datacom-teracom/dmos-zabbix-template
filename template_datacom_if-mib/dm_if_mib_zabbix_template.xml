@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2022-12-13T17:03:54Z</date>
+    <date>2023-09-14T13:53:26Z</date>
     <groups>
         <group>
             <name>DM - Templates</name>
@@ -33,7 +33,7 @@
                     <name>Network interfaces discovery</name>
                     <type>SNMPV2</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#IFOPERSTATUS},ifOperStatus,{#IFADMINSTATUS},ifAdminStatus,{#IFALIAS},ifAlias,{#IFDESCR},ifDescr]</snmp_oid>
+                    <snmp_oid>discovery[{#IFOPERSTATUS},ifOperStatus,{#IFADMINSTATUS},ifAdminStatus,{#IFALIAS},ifAlias,{#IFDESCR},ifDescr,{#IFPHYSADDRESS},ifPhysAddress]</snmp_oid>
                     <key>net.if.discovery</key>
                     <delay>60m</delay>
                     <filter>
@@ -416,7 +416,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                     </trigger_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Interface {#IFDESCR}({#IFALIAS}): Network traffic</name>
+                            <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic</name>
                             <graph_items>
                                 <graph_item>
                                     <drawtype>GRADIENT_LINE</drawtype>
@@ -470,7 +470,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
-                            <name>Interface {#IFDESCR}({#IFALIAS}): Network traffic in packets</name>
+                            <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic in packets</name>
                             <type>STACKED</type>
                             <graph_items>
                                 <graph_item>
@@ -592,7 +592,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                             <resourcetype>20</resourcetype>
                             <style>0</style>
                             <resource>
-                                <name>Interface {#IFDESCR}({#IFALIAS}): Network traffic</name>
+                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic</name>
                                 <host>DM Template - Datacom IF-MIB</host>
                             </resource>
                             <width>500</width>
@@ -614,7 +614,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                             <resourcetype>20</resourcetype>
                             <style>0</style>
                             <resource>
-                                <name>Interface {#IFDESCR}({#IFALIAS}): Network traffic in packets</name>
+                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic in packets</name>
                                 <host>DM Template - Datacom IF-MIB</host>
                             </resource>
                             <width>500</width>
