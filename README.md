@@ -29,6 +29,7 @@ Used for all Datacom platforms and other vendors.
 - {#IFADMINSTATUS} - Interface Administrative Status
 - {#IFALIAS} - Interface description
 - {#IFDESCR} - Interface name
+- {#IFPHYSADDRESS} - Interface physical address
 
 ## Template DmOS-BGP4-MIB
 
