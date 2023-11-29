@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2023-11-29T13:21:41Z</date>
+    <groups>
+        <group>
+            <name>DM - Templates</name>
+        </group>
+        <group>
+            <name>DmOS</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>DM Template - DmOS-ONU-COUNTING</template>
+            <name>DM Template - DmOS-ONU-COUNTING</name>
+            <description>The DATACOM MIB for ONUs counting by ponlink and total.</description>
+            <groups>
+                <group>
+                    <name>DM - Templates</name>
+                </group>
+                <group>
+                    <name>DmOS</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>ONU-Couting</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Global Down Onus</name>
+                    <type>SNMPV2</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.18.1.4.0</snmp_oid>
+                    <key>ponIfGlobalDownOnus</key>
+                    <delay>10m</delay>
+                    <applications>
+                        <application>
+                            <name>ONU-Couting</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Global Non Provisioned Onus</name>
+                    <type>SNMPV2</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.18.1.2.0</snmp_oid>
+                    <key>ponIfGlobalNonProvisionedOnus</key>
+                    <delay>10m</delay>
+                    <applications>
+                        <application>
+                            <name>ONU-Couting</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Global Total Onus</name>
+                    <type>SNMPV2</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.18.1.1.0</snmp_oid>
+                    <key>ponIfGlobalTotalOnus</key>
+                    <delay>10m</delay>
+                    <applications>
+                        <application>
+                            <name>ONU-Couting</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Global Up Onus</name>
+                    <type>SNMPV2</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>.1.3.6.1.4.1.3709.3.6.18.1.3.0</snmp_oid>
+                    <key>ponIfGlobalUpOnus</key>
+                    <delay>10m</delay>
+                    <applications>
+                        <application>
+                            <name>ONU-Couting</name>
+                        </application>
+                    </applications>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>PON interfaces discovery</name>
+                    <type>SNMPV2</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#PONIFDESCR},DMOS-ONU-COUNTING-MIB::ponIfDescr]</snmp_oid>
+                    <key>pon.if.discovery</key>
+                    <delay>60m</delay>
+                    <description>Discovering PON from DMOS-ONU-COUNTING-MIB.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>PON {#PONIFDESCR}: Down Onus</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfDownOnus.{#SNMPINDEX}</snmp_oid>
+                            <key>pon.if[ponIfDownOnus.{#SNMPINDEX}]</key>
+                            <applications>
+                                <application>
+                                    <name>ONU-Couting</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>PON {#PONIFDESCR}: Non Provisioned Onus</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfNonProvisionedOnus.{#SNMPINDEX}</snmp_oid>
+                            <key>pon.if[ponIfNonProvisionedOnus.{#SNMPINDEX}]</key>
+                            <applications>
+                                <application>
+                                    <name>ONU-Couting</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>PON {#PONIFDESCR}: Total ONUs</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfTotalOnus.{#SNMPINDEX}</snmp_oid>
+                            <key>pon.if[ponIfTotalOnus.{#SNMPINDEX}]</key>
+                            <applications>
+                                <application>
+                                    <name>ONU-Couting</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>PON {#PONIFDESCR}: Up Onus</name>
+                            <type>SNMPV2</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfUpOnus.{#SNMPINDEX}</snmp_oid>
+                            <key>pon.if[ponIfUpOnus.{#SNMPINDEX}]</key>
+                            <applications>
+                                <application>
+                                    <name>ONU-Couting</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <name>ONU Global Info</name>
+            <graph_items>
+                <graph_item>
+                    <color>FF0000</color>
+                    <calc_fnc>ALL</calc_fnc>
+                    <item>
+                        <host>DM Template - DmOS-ONU-COUNTING</host>
+                        <key>ponIfGlobalDownOnus</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>FF7043</color>
+                    <calc_fnc>ALL</calc_fnc>
+                    <item>
+                        <host>DM Template - DmOS-ONU-COUNTING</host>
+                        <key>ponIfGlobalNonProvisionedOnus</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>00FF00</color>
+                    <calc_fnc>ALL</calc_fnc>
+                    <item>
+                        <host>DM Template - DmOS-ONU-COUNTING</host>
+                        <key>ponIfGlobalUpOnus</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>DOTTED_LINE</drawtype>
+                    <color>000000</color>
+                    <calc_fnc>ALL</calc_fnc>
+                    <item>
+                        <host>DM Template - DmOS-ONU-COUNTING</host>
+                        <key>ponIfGlobalTotalOnus</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
