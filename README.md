@@ -106,3 +106,15 @@ DATACOM provides a Grafana JSON template where it is possible to validate some i
 
  For more details visit the link:
  https://www.datacom.com.br/pt/blog/98/monitoramento-dos-equipamentos-dmos-via-zabbix-e-grafana
+
+## Template DmOS GPON COUNTING
+
+Used for DATACOM DMOS-ONU-COUNTING-MIB for ONUs counting by ponlink and total.
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#PONIFDESCR} -PON description
