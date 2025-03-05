@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.4</version>
-    <date>2022-12-13T17:05:35Z</date>
-    <groups>
-        <group>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
             <name>DM - Templates</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>57d8a0d00e5544e8be6a2d042eba5894</uuid>
             <template>DM Template - DmOS</template>
             <name>DM Template - DmOS</name>
             <groups>
@@ -16,140 +17,136 @@
                     <name>DM - Templates</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>General</name>
-                </application>
-                <application>
-                    <name>Hardware Monitor</name>
-                </application>
-                <application>
-                    <name>System Monitor</name>
-                </application>
-            </applications>
             <items>
                 <item>
+                    <uuid>1be4ce9791d54069bcb7cbea974bb709</uuid>
                     <name>Device contact details</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>SNMPv2-MIB::sysContact.0</snmp_oid>
                     <key>sysContact</key>
                     <delay>60m</delay>
                     <history>7d</history>
-                    <trends>0</trends>
                     <value_type>CHAR</value_type>
                     <description>The textual identification of the contact person for this managed node, together with information on how to contact this person.  If no contact information is known, the value is the zero-length string.</description>
                     <inventory_link>CONTACT</inventory_link>
-                    <applications>
-                        <application>
-                            <name>General</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>General</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>8a199ce2fe874a42ad6decf1780ca78c</uuid>
                     <name>Device description</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>SNMPv2-MIB::sysDescr.0</snmp_oid>
                     <key>sysDescr</key>
                     <delay>60m</delay>
                     <history>7d</history>
-                    <trends>0</trends>
                     <value_type>CHAR</value_type>
                     <description>A textual description of the entity.  This value should include the full name and version identification of the system's hardware type, software operating-system, and networking software.</description>
                     <inventory_link>HARDWARE</inventory_link>
-                    <applications>
-                        <application>
-                            <name>General</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>General</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>a06bad5c19c34f33bb47bf5bd4d502c7</uuid>
                     <name>Device location</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>SNMPv2-MIB::sysLocation.0</snmp_oid>
                     <key>sysLocation</key>
                     <delay>60m</delay>
                     <history>7d</history>
-                    <trends>0</trends>
                     <value_type>CHAR</value_type>
                     <description>The physical location of this node (e.g., `telephone closet, 3rd floor').  If the location is unknown, the value is the zero-length string.</description>
                     <inventory_link>LOCATION</inventory_link>
-                    <applications>
-                        <application>
-                            <name>General</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>General</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>94ff72edd27f4b9ab6cffbad828c0a46</uuid>
                     <name>Device name</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>SNMPv2-MIB::sysName.0</snmp_oid>
                     <key>sysName</key>
                     <delay>60m</delay>
                     <history>7d</history>
-                    <trends>0</trends>
                     <value_type>CHAR</value_type>
                     <description>An administratively-assigned name for this managed node. By convention, this is the node's fully-qualified domain name.  If the name is unknown, the value is the zero-length string.</description>
                     <inventory_link>NAME</inventory_link>
-                    <applications>
-                        <application>
-                            <name>General</name>
-                        </application>
-                    </applications>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>General</value>
+                        </tag>
+                    </tags>
                 </item>
                 <item>
+                    <uuid>2fcbe0e771e9486e9efab72e5957d635</uuid>
                     <name>Device uptime</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>SNMPv2-MIB::sysUpTime.0</snmp_oid>
                     <key>sysUpTime</key>
                     <delay>60m</delay>
                     <history>7d</history>
                     <units>uptime</units>
                     <description>The time since the network management portion of the system was last re-initialized.</description>
-                    <applications>
-                        <application>
-                            <name>General</name>
-                        </application>
-                    </applications>
                     <preprocessing>
                         <step>
                             <type>MULTIPLIER</type>
-                            <params>0.01</params>
+                            <parameters>
+                                <parameter>0.01</parameter>
+                            </parameters>
                         </step>
                     </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>General</value>
+                        </tag>
+                    </tags>
                 </item>
             </items>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>ad6aec04561f4e1c814de8d2e836bff2</uuid>
                     <name>SNMP Discovery - CPU Cores</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::cpuCoreFiveSecondsActive]</snmp_oid>
                     <key>snmp.discovery.cpu.cores</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>491c570661af443c9b49667188511c4d</uuid>
                             <name>Active CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesActive[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&gt;80</expression>
+                                    <uuid>ded6ef4f7b8542e88624c26493307f14</uuid>
+                                    <expression>last(/DM Template - DmOS/cpuCoreFiveMinutesActive[{#SNMPINDEX}])&gt;80</expression>
                                     <name>{HOST.NAME} CPU Core High Usage &gt; 80% for 5 minutes</name>
                                     <priority>WARNING</priority>
                                     <description>{HOST.NAME} CPU Core usage greater than 80%</description>
@@ -157,209 +154,223 @@
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>132383e9e55240dd8502a84de7c63deb</uuid>
                             <name>Interrupt CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesInterrupt.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesInterrupt[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>05f2be6e985b436087e101c4d2207f0f</uuid>
                             <name>Nice CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesNice.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesNIce[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>c7853eed2ada40b39a120df1ab33f10e</uuid>
                             <name>Softirq CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSoftirq.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesSoftirq[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>e333a496f208458ca44bef810ee0aeaa</uuid>
                             <name>System CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSystem.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesSystem[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>8099b51c69714c4ebd66aabc6eca5b6f</uuid>
                             <name>User CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesUser.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesUser[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>ca246c8e6622429da4107784ee03094e</uuid>
                             <name>Wait CPU core last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesWait.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreFiveMinutesWait[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>613d71f6410d49f680bee481374deb70</uuid>
                             <name>Active CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteActive[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>9f70fd1ffa7344ab990154e5d9d24e58</uuid>
                             <name>Interrupt CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteInterrupt.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteInterrupt[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>ff7d3c90e25c4952ab939bea53f0ec33</uuid>
                             <name>Nice CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteNice.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteNice[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>e8129ecfdd0a4db8ac46258c76ba0c34</uuid>
                             <name>Softirq CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSoftirq.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteSoftirq[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>744cff73fc9c42e387cec88cf936433d</uuid>
                             <name>System CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSystem.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteSystem[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>dd87dff25d2a41549a543c608a9b3744</uuid>
                             <name>User CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteUser.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteUser[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>c62128b6b9054fe4873ff2b957e7c299</uuid>
                             <name>Wait CPU core last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteWait.{#SNMPINDEX}</snmp_oid>
                             <key>cpuCoreOneMinuteWait[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>13ae9d35306a4510a3932dc437321881</uuid>
                             <name>CPU Core {#SNMPINDEX} Last 1 Minute</name>
                             <graph_items>
                                 <graph_item>
@@ -427,6 +438,7 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <uuid>421434e9c15f44c6a6ad4ec700dc2033</uuid>
                             <name>CPU Core {#SNMPINDEX} Last 5 Minutes</name>
                             <graph_items>
                                 <graph_item>
@@ -496,31 +508,35 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>7122fb3b816d43d3ae8e58bea92e5650</uuid>
                     <name>SNMP Discovery - CPU Load</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::cpuLoadFiveSecondsActive]</snmp_oid>
                     <key>snmp.discovery.cpu.load</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>70fb504f06c0459397785e0b2a7541b1</uuid>
                             <name>Active CPU load last 5 minutes</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuLoadFiveMinutesActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuLoadFiveMinutesActive[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&gt;80</expression>
+                                    <uuid>ca717c902b314513b54ba5a1e539b23f</uuid>
+                                    <expression>last(/DM Template - DmOS/cpuLoadFiveMinutesActive[{#SNMPINDEX}])&gt;80</expression>
                                     <name>{HOST.NAME} CPU Load High Usage &gt; 80% for 5 minutes</name>
                                     <priority>WARNING</priority>
                                     <description>{HOST.NAME} CPU Load usage greater than 80%</description>
@@ -528,23 +544,25 @@
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>22d9889cec8747d6932c33d2edb5976c</uuid>
                             <name>Active CPU load last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::cpuLoadOneMinuteActive.{#SNMPINDEX}</snmp_oid>
                             <key>cpuLoadOneMinuteActive[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
                             <units>%</units>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>00515a5231054713904d68443801feda</uuid>
                             <name>CPU Load {#SNMPINDEX} Last 1 Minute</name>
                             <graph_items>
                                 <graph_item>
@@ -558,6 +576,7 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <uuid>40aa88d0bd4d46d484c9bca38a85b013</uuid>
                             <name>CPU Load {#SNMPINDEX} Last 5 Minutes</name>
                             <graph_items>
                                 <graph_item>
@@ -573,81 +592,87 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>31d54589205243a7884cb86ad09a0ab0</uuid>
                     <name>SNMP Discovery - Fan</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-HW-MONITOR-MIB::fanDescription]</snmp_oid>
                     <key>snmp.discovery.fan</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>86124b49493d41199c717c4529cdc501</uuid>
                             <name>FAN {#SNMPVALUE} Description</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanDescription.{#SNMPINDEX}</snmp_oid>
                             <key>fanDescription[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>85c8b9c9371b47178c2e8d6099200c9b</uuid>
                             <name>FAN {#SNMPVALUE} Read Error</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedReadError.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeedReadError[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-HW-MONITOR Read Error</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>0972093fea884e26a7452f5036460845</uuid>
                             <name>FAN {#SNMPVALUE} Status</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedStatus.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeedStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-HW-MONITOR Environment Sensor Status</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>9fc69cce18e84c1d85fa5efbdadb4d02</uuid>
                             <name>FAN {#SNMPVALUE} Speed</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeed.{#SNMPINDEX}</snmp_oid>
                             <key>fanSpeed[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <units>RPM</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>30a07eb892f6459e882ab68c84cf83cc</uuid>
                             <name>FAN {#SNMPVALUE} Speed</name>
                             <graph_items>
                                 <graph_item>
@@ -662,127 +687,139 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>014cdee3929249d1988f48866e53063b</uuid>
                     <name>SNMP Discovery - Memory</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-SYSMON-MIB::memoryFiveSecondsTotal]</snmp_oid>
                     <key>snmp.discovery.memory</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>9d537e29460e428f9169a3d796a214ff</uuid>
                             <name>Available memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteAvailable.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteAvailable[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&lt;100000000</expression>
+                                    <uuid>e42da67ac5974facb74c571b891c4be4</uuid>
+                                    <expression>last(/DM Template - DmOS/memoryOneMinuteAvailable[{#SNMPINDEX}])&lt;100000000</expression>
                                     <name>{HOST.NAME} - Memory Available Low &lt; 100MB</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>edc7f012d8724b03aa20eb99de32e289</uuid>
                             <name>Buffered memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteBuffered.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteBuffered[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>df14fa98d534484ab321f998fb4c2c19</uuid>
                             <name>Cached memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteCached.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteCached[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>5ba5cdb21116499a8398dd8e54eb9b59</uuid>
                             <name>Free memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteFree.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteFree[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>9aa8523273394621b0f502293a0b9b94</uuid>
                             <name>Slab Reclaimed last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabRecl.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteSlabRecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>af8b261c3f1e4d3c85ad7479763ad55f</uuid>
                             <name>Slab Unreclaimed last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabUnrecl.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteSlabUnrecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>f136f3ee130e4dec9daeda6b9ac64f53</uuid>
                             <name>Total memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteTotal.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteTotal[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>e86ab2742a2d47339108916eb35f4548</uuid>
                             <name>Used memory last 1 minute</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteUsed.{#SNMPINDEX}</snmp_oid>
                             <key>memoryOneMinuteUsed[{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>System Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>System Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>8bd6610b19bf47a6b6a42a3171400a3d</uuid>
                             <name>Memory Status {#SNMPINDEX} Last 1 minute</name>
                             <graph_items>
                                 <graph_item>
@@ -854,137 +891,153 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>ab140230298f40a6a4c6ab4e54ee81e3</uuid>
                     <name>SNMP Discovery - Temperature Sensor</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},DMOS-HW-MONITOR-MIB::temperatureSensorDescription]</snmp_oid>
                     <key>snmp.discovery.temp.sensor</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>7241fac1bb4447c496804521b73b7696</uuid>
                             <name>Sensor {#SNMPVALUE} - Current Temperature</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorCurrentTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorCurrentTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>0.1</params>
+                                    <parameters>
+                                        <parameter>0.1</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>16d5cbdcfa1b4a92b7d65e73ac28411c</uuid>
                             <name>Sensor {#SNMPVALUE} - Description</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorDescription.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorDescription[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>3bbfa7b76c244d97bdbe9a539fdf3a34</uuid>
                             <name>Sensor {#SNMPVALUE} - Hysteresis Temperature</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorHysteresis.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorHysteresis[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>0.1</params>
+                                    <parameters>
+                                        <parameter>0.1</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>5dabcb3db4814f27a9de10582b703566</uuid>
                             <name>Sensor {#SNMPVALUE} - Max Temperature</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMaxTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorMaxTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>0.1</params>
+                                    <parameters>
+                                        <parameter>0.1</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>71518956d93b4110b5233884274b3e49</uuid>
                             <name>Sensor {#SNMPVALUE} - Min Temperature</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMinTemperature.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorMinTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
                             <value_type>FLOAT</value_type>
                             <units>ºC</units>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>0.1</params>
+                                    <parameters>
+                                        <parameter>0.1</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>8222bbb62050449fbffda137d90b32a3</uuid>
                             <name>Sensor {#SNMPVALUE} - Read Error</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorTemperatureReadError.{#SNMPINDEX}</snmp_oid>
                             <key>temperatureSensorTemperatureReadError[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Hardware Monitor</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-HW-MONITOR Read Error</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>e5ad8c8252e84536b081f7721e29b75a</uuid>
                             <name>Sensor {#SNMPVALUE} Temperature</name>
                             <graph_items>
                                 <graph_item>
@@ -1015,10 +1068,57 @@
                     </graph_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <valuemaps>
+                <valuemap>
+                    <uuid>e4514a8c68da4fdcaca9e392dcda0e20</uuid>
+                    <name>DmOS-HW-MONITOR Environment Sensor Status</name>
+                    <mappings>
+                        <mapping>
+                            <value>-1</value>
+                            <newvalue>Error</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>-2</value>
+                            <newvalue>Fail</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Normal</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>High</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Low</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Critical</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>e4f29ef6046548368e3b1898a9f0b47f</uuid>
+                    <name>DmOS-HW-MONITOR Read Error</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Abnormal</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Normal</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
         </template>
     </templates>
     <graphs>
         <graph>
+            <uuid>9f52069a0c834a19878c00de5488e795</uuid>
             <name>Uptime</name>
             <show_work_period>NO</show_work_period>
             <show_triggers>NO</show_triggers>
@@ -1033,48 +1133,4 @@
             </graph_items>
         </graph>
     </graphs>
-    <value_maps>
-        <value_map>
-            <name>DmOS-HW-MONITOR Environment Sensor Status</name>
-            <mappings>
-                <mapping>
-                    <value>-1</value>
-                    <newvalue>Error</newvalue>
-                </mapping>
-                <mapping>
-                    <value>-2</value>
-                    <newvalue>Fail</newvalue>
-                </mapping>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>Normal</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>High</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Low</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>Critical</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>DmOS-HW-MONITOR Read Error</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Abnormal</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Normal</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-    </value_maps>
 </zabbix_export>

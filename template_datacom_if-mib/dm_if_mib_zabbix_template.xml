@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.4</version>
-    <date>2023-09-14T13:53:26Z</date>
-    <groups>
-        <group>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
             <name>DM - Templates</name>
-        </group>
-        <group>
+        </template_group>
+        <template_group>
+            <uuid>36bff6c29af64692839d077febfc7079</uuid>
             <name>Templates/Network devices</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>3405a2511e25408fa503112a50ef809d</uuid>
             <template>DM Template - Datacom IF-MIB</template>
             <name>DM Template - Datacom IF-MIB</name>
             <description>Template is valid for all Datacom platforms and other vendors.</description>
@@ -23,16 +25,11 @@
                     <name>Templates/Network devices</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>Network interfaces</name>
-                </application>
-            </applications>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>abe9f06dadbf4958b7d1ac5e6b37390e</uuid>
                     <name>Network interfaces discovery</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#IFOPERSTATUS},ifOperStatus,{#IFADMINSTATUS},ifAdminStatus,{#IFALIAS},ifAlias,{#IFDESCR},ifDescr,{#IFPHYSADDRESS},ifPhysAddress]</snmp_oid>
                     <key>net.if.discovery</key>
                     <delay>60m</delay>
@@ -40,328 +37,337 @@
                         <evaltype>AND</evaltype>
                         <conditions>
                             <condition>
-                                <macro>{#IFDESCR}</macro>
-                                <value>{$NET.IF.IFDESCR.NOT_MATCHES}</value>
-                                <operator>NOT_MATCHES_REGEX</operator>
-                                <formulaid>B</formulaid>
-                            </condition>
-                            <condition>
                                 <macro>{#IFADMINSTATUS}</macro>
                                 <value>{$NET.IF.IFADMINSTATUS.NOT_MATCHES}</value>
                                 <operator>NOT_MATCHES_REGEX</operator>
-                                <formulaid>A</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#IFDESCR}</macro>
+                                <value>{$NET.IF.IFDESCR.NOT_MATCHES}</value>
+                                <operator>NOT_MATCHES_REGEX</operator>
                             </condition>
                             <condition>
                                 <macro>{#IFOPERSTATUS}</macro>
                                 <value>^u|^1</value>
-                                <formulaid>C</formulaid>
                             </condition>
                         </conditions>
                     </filter>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <description>Discovering interfaces from IF-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>c1ae066f29e5487aab3bfd58e9eaf3b7</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Bits received</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifHCInOctets.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifHCInOctets.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>a45471565be64083a5e1d5c15492b518</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Bits sent</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifHCOutOctets.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifHCOutOctets.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>25df7996eb454ad4ae411eea6b0d18a9</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Speed</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifHighSpeed.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifHighSpeed.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>0</trends>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>1000000</params>
+                                    <parameters>
+                                        <parameter>1000000</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>066a36d913404260bea44f737f6859a7</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound broadcast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifInBroadcastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifInBroadcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>3fc2a2010f8f493397ff16e811881824</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound packets discarded</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifInDiscards.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifInDiscards.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>23ddb5d24a294bf08fc63b2b7aa1f738</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound packets with errors</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifInErrors.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifInErrors.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>274097998bb44042b8399a33dc911158</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound multicast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifInMulticastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifInMulticastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>bfb80211a43246e3bf465953215189c6</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound unicast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifInUcastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifInUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>fa7263b8fa1249778f173751a2679069</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Operational Status</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOperStatus.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOperStatus.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>0</trends>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>IF-MIB::ifOperStatus</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and ({last()}=2 and {diff()}=1)</expression>
+                                    <uuid>ab053e952a1a4413b9b1cdbbe8e0d5e7</uuid>
+                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#1)&lt;&gt;last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#2))=1)</expression>
                                     <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
-                                    <recovery_expression>{last()}&lt;&gt;2</recovery_expression>
+                                    <recovery_expression>last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2</recovery_expression>
                                     <name>Interface {#IFDESCR}({#IFALIAS}): Link down</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
                                     <priority>AVERAGE</priority>
-                                    <description>This trigger expression works as follows:&#13;
-1. Can be triggered if operations status is down.&#13;
-2. {$IFCONTROL:&quot;{#IFNAME}&quot;}=1 - user can redefine Context macro to value - 0. That marks this interface as not important. No new trigger will be fired if this interface is down.&#13;
-3. {TEMPLATE_NAME:METRIC.diff()}=1) - trigger fires only if operational status was up(1) sometime before. (So, do not fire 'ethernal off' interfaces.)&#13;
-&#13;
+                                    <description>This trigger expression works as follows:
+1. Can be triggered if operations status is down.
+2. {$IFCONTROL:&quot;{#IFNAME}&quot;}=1 - user can redefine Context macro to value - 0. That marks this interface as not important. No new trigger will be fired if this interface is down.
+3. {TEMPLATE_NAME:METRIC.diff()}=1) - trigger fires only if operational status was up(1) sometime before. (So, do not fire 'ethernal off' interfaces.)
+
 WARNING: if closed manually - won't fire again on next poll, because of .diff.</description>
                                     <manual_close>YES</manual_close>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>7bcd47f57b5a4357b6134688a7b475dc</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound broadcast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOutBroadcastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOutBroadcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>4e6ce93b536b4b76a985c3014017a9b1</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound packets discarded</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOutDiscards.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOutDiscards.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>0da7038b64d34d5a8fd655f0ef043025</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound packets with errors</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOutErrors.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOutErrors.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>97e075f050654aa499aead9cc4dd2507</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound multicast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOutMulticastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOutMulticastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>2248252cdd8248d48e3b44acce2a99e6</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound unicast packets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>ifOutUcastPkts.{#SNMPINDEX}</snmp_oid>
                             <key>net.if[ifOutUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
-                            <applications>
-                                <application>
-                                    <name>Network interfaces</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Network interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].change()}&lt;0 and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}&gt;0&#13;
-and&#13;
-({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}&lt;&gt;2)</expression>
+                            <uuid>53b4cc76233a4f9dbbaa5b666babf38d</uuid>
+                            <expression>change(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])&lt;0 and last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])&gt;0
+and
+(last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2)</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
-                            <recovery_expression>({DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].change()}&gt;0 and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].prev()}&gt;=0) or&#13;
-({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2)</recovery_expression>
+                            <recovery_expression>(change(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])&gt;0 and last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}],#2)&gt;=0) or
+(last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2)</recovery_expression>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Ethernet has changed to lower speed than it was before</name>
                             <opdata>Current reported speed: {ITEM.LASTVALUE1}</opdata>
                             <priority>INFO</priority>
@@ -370,18 +376,19 @@ and&#13;
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFDESCR}({#IFALIAS}): Link down</name>
-                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and ({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2 and {DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].diff()}=1)</expression>
-                                    <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}&lt;&gt;2</recovery_expression>
+                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#1)&lt;&gt;last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#2))=1)</expression>
+                                    <recovery_expression>last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2</recovery_expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>({DM Template - Datacom IF-MIB:net.if[ifHCInOctets.{#SNMPINDEX}].avg(5m)}&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}) or&#13;
-({DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}) and {DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()}&gt;0</expression>
+                            <uuid>4692c8dfb9d14ef9992eca378073080d</uuid>
+                            <expression>(avg(/DM Template - Datacom IF-MIB/net.if[ifHCInOctets.{#SNMPINDEX}],5m)&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])) or
+(avg(/DM Template - Datacom IF-MIB/net.if[ifHCOutOctets.{#SNMPINDEX}],5m)&gt;({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}/100)*last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])) and last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}])&gt;0</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
-                            <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifHCInOctets.{#SNMPINDEX}].avg(5m)}&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()} and&#13;
-{DM Template - Datacom IF-MIB:net.if[ifHCOutOctets.{#SNMPINDEX}].avg(5m)}&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*{DM Template - Datacom IF-MIB:net.if[ifHighSpeed.{#SNMPINDEX}].last()} or&#13;
-{DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2</recovery_expression>
+                            <recovery_expression>avg(/DM Template - Datacom IF-MIB/net.if[ifHCInOctets.{#SNMPINDEX}],5m)&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}]) and
+avg(/DM Template - Datacom IF-MIB/net.if[ifHCOutOctets.{#SNMPINDEX}],5m)&lt;(({$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}-3)/100)*last(/DM Template - Datacom IF-MIB/net.if[ifHighSpeed.{#SNMPINDEX}]) or
+last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2</recovery_expression>
                             <name>Interface {#IFDESCR}({#IFALIAS}): High bandwidth usage ( &gt; {$IF.UTIL.MAX:&quot;{#IFDESCR}&quot;}% )</name>
                             <opdata>In: {ITEM.LASTVALUE1}, Out: {ITEM.LASTVALUE3}, speed: {ITEM.LASTVALUE2}</opdata>
                             <priority>WARNING</priority>
@@ -389,17 +396,18 @@ and&#13;
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFDESCR}({#IFALIAS}): Link down</name>
-                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and ({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2 and {DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].diff()}=1)</expression>
-                                    <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}&lt;&gt;2</recovery_expression>
+                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#1)&lt;&gt;last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#2))=1)</expression>
+                                    <recovery_expression>last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2</recovery_expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{DM Template - Datacom IF-MIB:net.if[ifInErrors.{#SNMPINDEX}].min(5m)}&gt;{$IF.ERRORS.WARN:&quot;{#IFDESCR}&quot;}&#13;
-or {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].min(5m)}&gt;{$IF.ERRORS.WARN:&quot;{#IFDESCR}&quot;}</expression>
+                            <uuid>c9752f87de054e11a8e0c3c6e7e9d001</uuid>
+                            <expression>min(/DM Template - Datacom IF-MIB/net.if[ifInErrors.{#SNMPINDEX}],5m)&gt;{$IF.ERRORS.WARN:&quot;{#IFDESCR}&quot;}
+or min(/DM Template - Datacom IF-MIB/net.if[ifOutErrors.{#SNMPINDEX}],5m)&gt;{$IF.ERRORS.WARN:&quot;{#IFDESCR}&quot;}</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
-                            <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifInErrors.{#SNMPINDEX}].max(5m)}&lt;{$IF.ERRORS.WARN:&quot;{#IFNAME}&quot;}*0.8&#13;
-and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{$IF.ERRORS.WARN:&quot;{#IFNAME}&quot;}*0.8</recovery_expression>
+                            <recovery_expression>max(/DM Template - Datacom IF-MIB/net.if[ifInErrors.{#SNMPINDEX}],5m)&lt;{$IF.ERRORS.WARN:&quot;{#IFNAME}&quot;}*0.8
+and max(/DM Template - Datacom IF-MIB/net.if[ifOutErrors.{#SNMPINDEX}],5m)&lt;{$IF.ERRORS.WARN:&quot;{#IFNAME}&quot;}*0.8</recovery_expression>
                             <name>Interface {#IFDESCR}({#IFALIAS}): High error rate ( &gt; {$IF.ERRORS.WARN:&quot;{#IFDESCR}&quot;} for 5m)</name>
                             <opdata>errors in: {ITEM.LASTVALUE1}, errors out: {ITEM.LASTVALUE2}</opdata>
                             <priority>WARNING</priority>
@@ -408,14 +416,15 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                             <dependencies>
                                 <dependency>
                                     <name>Interface {#IFDESCR}({#IFALIAS}): Link down</name>
-                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and ({DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}=2 and {DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].diff()}=1)</expression>
-                                    <recovery_expression>{DM Template - Datacom IF-MIB:net.if[ifOperStatus.{#SNMPINDEX}].last()}&lt;&gt;2</recovery_expression>
+                                    <expression>{$IFCONTROL:&quot;{#IFDESCR}&quot;}=1 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])=2 and (last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#1)&lt;&gt;last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}],#2))=1)</expression>
+                                    <recovery_expression>last(/DM Template - Datacom IF-MIB/net.if[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2</recovery_expression>
                                 </dependency>
                             </dependencies>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>390fb4c4d3ad4fd7a11c66ec1918155c</uuid>
                             <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic</name>
                             <graph_items>
                                 <graph_item>
@@ -470,6 +479,7 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <uuid>1008b09fe94b4cc8bf97efc07bd88627</uuid>
                             <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic in packets</name>
                             <type>STACKED</type>
                             <graph_items>
@@ -582,90 +592,121 @@ and {DM Template - Datacom IF-MIB:net.if[ifOutErrors.{#SNMPINDEX}].max(5m)}&lt;{
                     <description>Filter DM1205 VLAN Interfaces and N/A</description>
                 </macro>
             </macros>
-            <screens>
-                <screen>
+            <dashboards>
+                <dashboard>
+                    <uuid>b76daffdf09c4f1684adcb1234c173b8</uuid>
                     <name>Network interfaces</name>
-                    <hsize>1</hsize>
-                    <vsize>2</vsize>
-                    <screen_items>
-                        <screen_item>
-                            <resourcetype>20</resourcetype>
-                            <style>0</style>
-                            <resource>
-                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic</name>
-                                <host>DM Template - Datacom IF-MIB</host>
-                            </resource>
-                            <width>500</width>
-                            <height>100</height>
-                            <x>0</x>
-                            <y>0</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <url/>
-                            <application/>
-                            <max_columns>3</max_columns>
-                        </screen_item>
-                        <screen_item>
-                            <resourcetype>20</resourcetype>
-                            <style>0</style>
-                            <resource>
-                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic in packets</name>
-                                <host>DM Template - Datacom IF-MIB</host>
-                            </resource>
-                            <width>500</width>
-                            <height>100</height>
-                            <x>0</x>
-                            <y>1</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <url/>
-                            <application/>
-                            <max_columns>3</max_columns>
-                        </screen_item>
-                    </screen_items>
-                </screen>
-            </screens>
+                    <pages>
+                        <page>
+                            <widgets>
+                                <widget>
+                                    <type>graphprototype</type>
+                                    <width>72</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>columns</name>
+                                            <value>1</value>
+                                        </field>
+                                        <field>
+                                            <type>GRAPH_PROTOTYPE</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>DM Template - Datacom IF-MIB</host>
+                                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic</name>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>STRING</type>
+                                            <name>reference</name>
+                                            <value>AAAAA</value>
+                                        </field>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>rows</name>
+                                            <value>1</value>
+                                        </field>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>source_type</name>
+                                            <value>2</value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>graphprototype</type>
+                                    <y>5</y>
+                                    <width>72</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>columns</name>
+                                            <value>1</value>
+                                        </field>
+                                        <field>
+                                            <type>GRAPH_PROTOTYPE</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <host>DM Template - Datacom IF-MIB</host>
+                                                <name>Interface {#IFDESCR}({#IFPHYSADDRESS})({#IFALIAS}): Network traffic in packets</name>
+                                            </value>
+                                        </field>
+                                        <field>
+                                            <type>STRING</type>
+                                            <name>reference</name>
+                                            <value>AAAAB</value>
+                                        </field>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>rows</name>
+                                            <value>1</value>
+                                        </field>
+                                        <field>
+                                            <type>INTEGER</type>
+                                            <name>source_type</name>
+                                            <value>2</value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                            </widgets>
+                        </page>
+                    </pages>
+                </dashboard>
+            </dashboards>
+            <valuemaps>
+                <valuemap>
+                    <uuid>de44b71a899f4cc4a7102f1b31811855</uuid>
+                    <name>IF-MIB::ifOperStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>up</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>down</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>dormant</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>notPresent</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>7</value>
+                            <newvalue>lowerLayerDown</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
         </template>
     </templates>
-    <value_maps>
-        <value_map>
-            <name>IF-MIB::ifOperStatus</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>up</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>down</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>unknown</newvalue>
-                </mapping>
-                <mapping>
-                    <value>5</value>
-                    <newvalue>dormant</newvalue>
-                </mapping>
-                <mapping>
-                    <value>6</value>
-                    <newvalue>notPresent</newvalue>
-                </mapping>
-                <mapping>
-                    <value>7</value>
-                    <newvalue>lowerLayerDown</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-    </value_maps>
 </zabbix_export>
