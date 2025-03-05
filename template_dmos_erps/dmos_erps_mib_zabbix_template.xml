@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.4</version>
-    <date>2022-12-23T18:27:46Z</date>
-    <groups>
-        <group>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
             <name>DM - Templates</name>
-        </group>
-        <group>
+        </template_group>
+        <template_group>
+            <uuid>36bff6c29af64692839d077febfc7079</uuid>
             <name>Templates/Network devices</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>2a2dc19c6ee140afa347f9b8d7215b7f</uuid>
             <template>DM Template - DMOS-ERPS-MIB</template>
             <name>DM Template - DMOS-ERPS-MIB</name>
             <groups>
@@ -22,303 +24,313 @@
                     <name>Templates/Network devices</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>ERPS</name>
-                </application>
-            </applications>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>1f5e45abf3384c63866b393586c94524</uuid>
                     <name>ERPS Rings</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ERPS_RING_ID},DMOS-ERPS-MIB::erpsRingId]</snmp_oid>
                     <key>snmp.discovery.erps.rings</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <description>Discovering ERPS rings from DMOS-ERPS-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>9545416fbb174afb9d2651eeaaf2ffb7</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Control VLAN</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingControlVlan.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingControlVlan.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>7a1b8ecfd2b647b3bfba26e8b2e0bdc8</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} ID</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingId.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingId.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>4f551a3f069d4dc195e485aea5a40d80</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Name</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingName.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingName.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>d6bce20f12dd474aac23364493d052d8</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Parent Ring</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingParentRing.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingParentRing.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>2c0c81328ad24fb889334554cf7d8d42</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort0.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>6c36755f41aa4582a265cc008deb319d</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0 RPL Role</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0RplRole.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort0RplRole.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Port Role</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>3e0eab10d6484494ab561b2fcaa7dc63</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0 State</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0State.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort0State.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Port State</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>09e768a303b240c89982b300a3ab383f</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort1.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <trends>0</trends>
                             <value_type>TEXT</value_type>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>1f62364679304de1baa1b0eb4b1f0c07</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1 RPL Role</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1RplRole.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort1RplRole.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Port Role</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>b0004992f9df42a199afeadaf4a1e580</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1 State</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1State.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingPort1State.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Port State</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>abda0b762df54bccad760b43afab9629</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} State</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingState.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Ring State</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&lt;&gt;1</expression>
+                                    <uuid>bacade2f14dc41fea318a1b4ca22a74f</uuid>
+                                    <expression>last(/DM Template - DMOS-ERPS-MIB/erpsRingState.[{#SNMPINDEX}])&lt;&gt;1</expression>
                                     <name>ERPS Ring {#ERPS_RING_ID} ID status not IDLE</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>b14d4684e0c044649d4c96acc3ebba6c</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Type</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-ERPS-MIB::erpsRingType.{#SNMPINDEX}</snmp_oid>
                             <key>erpsRingType.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>ERPS</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>DmOS-ERPS-MIB Ring Type</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ERPS</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <valuemaps>
+                <valuemap>
+                    <uuid>b3a27207333d4714af536606ee120ca8</uuid>
+                    <name>DmOS-ERPS-MIB Port Role</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>None</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Owner</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Neighbor</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>233f0c3f9c6849d3a5c9922131c557ba</uuid>
+                    <name>DmOS-ERPS-MIB Port State</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Forwarding</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Blocked</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Data-Blocked</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>Control Channel Blocked</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>89f598edf0644442bfe6fa84ee616369</uuid>
+                    <name>DmOS-ERPS-MIB Ring State</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Init</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Idle</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Protection</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Manual Switch</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>Forced Switch</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>Pending</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>Unknown</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>21ac6b155b7d42edafa1535007d5f635</uuid>
+                    <name>DmOS-ERPS-MIB Ring Type</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Major-Ring</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Sub-Ring</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
         </template>
     </templates>
-    <value_maps>
-        <value_map>
-            <name>DmOS-ERPS-MIB Port Role</name>
-            <mappings>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>None</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Owner</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Neighbor</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>DmOS-ERPS-MIB Port State</name>
-            <mappings>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>Unknown</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Forwarding</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Blocked</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>Data-Blocked</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>Control Channel Blocked</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>DmOS-ERPS-MIB Ring State</name>
-            <mappings>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>Init</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Idle</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Protection</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>Manual Switch</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>Forced Switch</newvalue>
-                </mapping>
-                <mapping>
-                    <value>5</value>
-                    <newvalue>Pending</newvalue>
-                </mapping>
-                <mapping>
-                    <value>6</value>
-                    <newvalue>Unknown</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>DmOS-ERPS-MIB Ring Type</name>
-            <mappings>
-                <mapping>
-                    <value>0</value>
-                    <newvalue>Major-Ring</newvalue>
-                </mapping>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Sub-Ring</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-    </value_maps>
 </zabbix_export>

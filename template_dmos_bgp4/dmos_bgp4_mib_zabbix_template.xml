@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.4</version>
-    <date>2022-12-07T20:05:04Z</date>
-    <groups>
-        <group>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
             <name>DM - Templates</name>
-        </group>
-        <group>
+        </template_group>
+        <template_group>
+            <uuid>36bff6c29af64692839d077febfc7079</uuid>
             <name>Templates/Network devices</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>df056833fa5c47338a4ad557e3eccb0e</uuid>
             <template>DM Template - DMOS-BGP4-MIB</template>
             <name>DM Template - DMOS-BGP4-MIB</name>
             <description>Template for standard BGP-4-MIB and DmOS proprietary MIB.</description>
@@ -23,112 +25,118 @@
                     <name>Templates/Network devices</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>BGP</name>
-                </application>
-            </applications>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>9419f551c486405898e8aad9428770b4</uuid>
                     <name>DMOS-BGP4 Discovery - Prefix Counters Table</name>
                     <type>EXTERNAL</type>
                     <key>dmos_bgp4_mib.py[&quot;{HOST.CONN}&quot;, &quot;{$SNMP_COMMUNITY}&quot;]</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>0b74b49158ee47f398c72e1de25661cc</uuid>
                             <name>BGP In Accepted Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInAcceptedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInAcceptedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>01237fea9fcb4691b31644b93aa6f882</uuid>
                             <name>BGP In Active Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInActivePrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInActivePrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>db2e8ac938c941278dd06431701bd497</uuid>
                             <name>BGP In Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>df5f02101d904a44854277cc14bc4510</uuid>
                             <name>BGP In Prefixes Denied By Policer for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixesDeniedByPol.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInPrefixesDeniedByPol.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>e97f7bfb47bf41cdaad989fc346f7b65</uuid>
                             <name>BGP In Rejected Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInRejectedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersInRejectedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>8fa9838d929d4fd5ab330f824ff70856</uuid>
                             <name>BGP Out Advertised Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutAdvertisedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersOutAdvertisedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>7ec0fb092ec14c01b800b8e1ecf7d2b3</uuid>
                             <name>BGP Out Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
                             <key>bgpPrefixCountersOutPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>2cf6a110465742c39f473a33d726d1af</uuid>
                             <name>BGP Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <graph_items>
                                 <graph_item>
@@ -191,96 +199,105 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>ce787dd0b90a49ce9d08fac287382d3b</uuid>
                     <name>BGP4 Discovery - Peer Table</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},BGP4-MIB::bgpPeerRemoteAddr]</snmp_oid>
                     <key>snmp.discovery.bgp.peer.table</key>
                     <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>0d2052b54f0446dd9199b15460521341</uuid>
                             <name>BGP Established Transitions for Peer {#SNMPVALUE}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerFsmEstablishedTransitions.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerFsmEstablishedTransitions.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>7f4878d698d4484f97ee6b3b139eac16</uuid>
                             <name>BGP In Total Messages for Peer {#SNMPVALUE}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerInTotalMessages.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerInTotalMessages.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>8a1faadf77824f26a0104f3b7a09a4a1</uuid>
                             <name>BGP In Updates for Peer {#SNMPVALUE}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerInUpdates.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerInUpdates.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>d17cde45481c4f99a2afafe710f8f21a</uuid>
                             <name>BGP Out Total Messages for Peer {#SNMPVALUE}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerOutTotalMessages.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerOutTotalMessages.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>b3c8d724a3534254a5ca69b5d4130939</uuid>
                             <name>BGP Out Updates for Peer {#SNMPVALUE}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerOutUpdates.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerOutUpdates.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>6a2c1f7e4626458399322614b99ca7b2</uuid>
                             <name>BGP Peer {#SNMPVALUE} State</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>BGP4-MIB::bgpPeerState.{#SNMPINDEX}</snmp_oid>
                             <key>bgpPeerState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
-                            <applications>
-                                <application>
-                                    <name>BGP</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>BGP-4-MIB Peer State</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>BGP</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&lt;&gt;6</expression>
+                                    <uuid>3746152b968242feaed0a9bf4e0701b5</uuid>
+                                    <expression>last(/DM Template - DMOS-BGP4-MIB/bgpPeerState.[{#SNMPINDEX}])&lt;&gt;6</expression>
                                     <name>BGP Peer {#SNMPVALUE} is not operational</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
                                     <priority>HIGH</priority>
@@ -291,37 +308,38 @@
                     </item_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <valuemaps>
+                <valuemap>
+                    <uuid>10007803e4244f8999574906b75e4869</uuid>
+                    <name>BGP-4-MIB Peer State</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Idle</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Connect</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Active</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>OpenSent</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>OpenConfirm</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>Established</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
         </template>
     </templates>
-    <value_maps>
-        <value_map>
-            <name>BGP-4-MIB Peer State</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Idle</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Connect</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>Active</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>OpenSent</newvalue>
-                </mapping>
-                <mapping>
-                    <value>5</value>
-                    <newvalue>OpenConfirm</newvalue>
-                </mapping>
-                <mapping>
-                    <value>6</value>
-                    <newvalue>Established</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-    </value_maps>
 </zabbix_export>

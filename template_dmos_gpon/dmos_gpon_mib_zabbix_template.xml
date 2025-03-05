@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.4</version>
-    <date>2022-12-30T13:52:39Z</date>
-    <groups>
-        <group>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
             <name>DM - Templates</name>
-        </group>
-        <group>
+        </template_group>
+        <template_group>
+            <uuid>83761f47e4884f74a1c6851e01014167</uuid>
             <name>DmOS</name>
-        </group>
-        <group>
+        </template_group>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
             <name>Templates</name>
-        </group>
-    </groups>
+        </template_group>
+    </template_groups>
     <templates>
         <template>
+            <uuid>5bfff143d325461cad250ec5a0db8659</uuid>
             <template>DM Template - DmOS GPON</template>
             <name>DM Template - DmOS GPON</name>
             <groups>
@@ -28,37 +31,11 @@
                     <name>Templates</name>
                 </group>
             </groups>
-            <applications>
-                <application>
-                    <name>ONU-Counter</name>
-                </application>
-                <application>
-                    <name>ONU-GEM-Counter</name>
-                </application>
-                <application>
-                    <name>ONU-Interfaces</name>
-                </application>
-                <application>
-                    <name>ONU-Power</name>
-                </application>
-                <application>
-                    <name>ONU-Status</name>
-                </application>
-                <application>
-                    <name>ONU-Uptime</name>
-                </application>
-                <application>
-                    <name>ONUs</name>
-                </application>
-                <application>
-                    <name>Uptime</name>
-                </application>
-            </applications>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>c9fefcac7a894ed38a8f6cee39bb2e5b</uuid>
                     <name>ONU Interfaces Discovery</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ONUIFDESCR},.onuifDescr,{#ONUIFNAME},.onuifName]</snmp_oid>
                     <key>onu.if.discovery</key>
                     <delay>60m</delay>
@@ -67,18 +44,19 @@
                             <condition>
                                 <macro>{#ONUIFDESCR}</macro>
                                 <value>^gpon-[0-9]\/[0-9]\/[0-9]{1,}-onu-[0-9]{1,}$</value>
-                                <formulaid>A</formulaid>
                             </condition>
                         </conditions>
                     </filter>
-                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.&#13;
-&#13;
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.
+
 {$SNMP_COMMUNITY} is a global macro.</description>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>a6e307748b4b4bf6940466a68d284b8c</uuid>
                             <name>AdminStatus - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuifAdminStatus.{#SNMPINDEX}</snmp_oid>
                             <key>onuifAdminStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
@@ -86,103 +64,111 @@
                             <trends>90d</trends>
                             <status>DISABLED</status>
                             <description>The current operational state of the interface.</description>
-                            <applications>
-                                <application>
-                                    <name>ONU-Interfaces</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>SNMP interface status (ifAdminStatus)</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Interfaces</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>60cf179687d84a9fa33183cf7d9e897a</uuid>
                             <name>Power RX - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfOnuPowerRx.{#SNMPINDEX}</snmp_oid>
                             <key>onuIfOnuPowerRx[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
-                            <trends>90d</trends>
                             <value_type>FLOAT</value_type>
+                            <trends>90d</trends>
                             <units>dBm</units>
                             <description>Values of power reported by the ONU.</description>
-                            <applications>
-                                <application>
-                                    <name>ONU-Power</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Power</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&lt;-27.0 or&#13;
-{last()}&gt;-8.0</expression>
+                                    <uuid>946ca93f4ced458e9cd9343143d88fa9</uuid>
+                                    <expression>last(/DM Template - DmOS GPON/onuIfOnuPowerRx[{#SNMPINDEX}])&lt;-27.0 or
+last(/DM Template - DmOS GPON/onuIfOnuPowerRx[{#SNMPINDEX}])&gt;-8.0</expression>
                                     <name>Power RX overload on {HOST.NAME} interface {#SNMPVALUE}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>63ac2eafe8744ecd90c17d0c1c55e78f</uuid>
                             <name>Power TX - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfOnuPowerTx.{#SNMPINDEX}</snmp_oid>
                             <key>onuIfOnuPowerTx[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
+                            <value_type>FLOAT</value_type>
                             <trends>90d</trends>
                             <status>DISABLED</status>
-                            <value_type>FLOAT</value_type>
                             <units>dBm</units>
                             <description>Values of power reported by the ONU.</description>
-                            <applications>
-                                <application>
-                                    <name>ONU-Power</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Power</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}&gt;5.0 or&#13;
-{last()}&lt;-0.5</expression>
+                                    <uuid>f7e0402fe6de475e8e29423df82cbdb1</uuid>
+                                    <expression>last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&gt;5.0 or
+last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression>
                                     <name>Power TX overload on {HOST.NAME} interface {#SNMPVALUE}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>528e40b010f842f2a619d7b67835b38a</uuid>
                             <name>Status - ONU {#ONUIFDESCR}</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuifOperStatus.{#SNMPINDEX}</snmp_oid>
                             <key>onuifOperStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
                             <trends>90d</trends>
                             <description>The current operational state of the interface.</description>
-                            <applications>
-                                <application>
-                                    <name>ONUs</name>
-                                </application>
-                            </applications>
                             <valuemap>
                                 <name>SNMP interface status (ifOperStatus)</name>
                             </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONUs</value>
+                                </tag>
+                            </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <expression>{last()}=2</expression>
+                                    <uuid>8d72748e1cf445cdad4c3e507e047118</uuid>
+                                    <expression>last(/DM Template - DmOS GPON/onuifOperStatus[{#SNMPINDEX}])=2</expression>
                                     <name>Operational status down on {HOST.NAME} interface {#SNMPVALUE}</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                                 <trigger_prototype>
-                                    <expression>{diff()}=1</expression>
+                                    <uuid>ffce805601144613930c18e2fae1be4e</uuid>
+                                    <expression>(last(/DM Template - DmOS GPON/onuifOperStatus[{#SNMPINDEX}],#1)&lt;&gt;last(/DM Template - DmOS GPON/onuifOperStatus[{#SNMPINDEX}],#2))=1</expression>
                                     <name>Operational status was changed on {HOST.NAME} interface {#SNMPVALUE}</name>
                                     <priority>WARNING</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>d2da81ba0c204ff482f568d2bf47cb64</uuid>
                             <name>Uptime - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuSysUpTime.{#SNMPINDEX}</snmp_oid>
                             <key>onuSysUpTime[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
@@ -190,21 +176,25 @@
                             <trends>90d</trends>
                             <units>uptime</units>
                             <description>Values of ONU uptime.</description>
-                            <applications>
-                                <application>
-                                    <name>ONU-Uptime</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>0.01</params>
+                                    <parameters>
+                                        <parameter>0.01</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Uptime</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>cf214fcbb48f4f41a732bf0c07f35319</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Power</name>
                             <graph_items>
                                 <graph_item>
@@ -217,6 +207,7 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <uuid>75b67096f66c4152948058756dee7e0b</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Uptime</name>
                             <graph_items>
                                 <graph_item>
@@ -231,9 +222,9 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>e96681b4377448bc872c15e29a0b66cb</uuid>
                     <name>ONU Interfaces Discovery GEM</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ONUIFDESCR},.onuifDescr,{#ONUIFNAME},.onuifName]</snmp_oid>
                     <key>onu.if.discovery.gem</key>
                     <delay>60m</delay>
@@ -243,63 +234,69 @@
                             <condition>
                                 <macro>{#ONUIFDESCR}</macro>
                                 <value>^gpon-[0-9]\/[0-9]\/[0-9]{1,}-onu-[0-9]{1,}-gem-[0-9]{1,}</value>
-                                <formulaid>A</formulaid>
                             </condition>
                         </conditions>
                     </filter>
-                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.&#13;
-&#13;
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.
+
 {$SNMP_COMMUNITY} is a global macro.</description>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>6a95738c37b649efada775501d2a5e37</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): GEM Input Octets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuGemInOctets.{#SNMPINDEX}</snmp_oid>
                             <key>onuGemInOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>d10076c5cae14124bd096217bb2ab8ee</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): GEM Output Octets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuGemOutOctets.{#SNMPINDEX}</snmp_oid>
                             <key>onuGemOutOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>d86ad52c3576454fa7d01a5e5a06fde5</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): GEM Counter</name>
                             <graph_items>
                                 <graph_item>
@@ -324,9 +321,9 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
+                    <uuid>ae66c0450eb54fe194b3c5f757bd872d</uuid>
                     <name>ONU Interfaces Discovery UNI</name>
-                    <type>SNMPV2</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ONUIFDESCR},.onuifDescr,{#ONUIFNAME},.onuifName]</snmp_oid>
                     <key>onu.if.discovery.uni</key>
                     <delay>60m</delay>
@@ -336,91 +333,99 @@
                             <condition>
                                 <macro>{#ONUIFDESCR}</macro>
                                 <value>^gpon-[0-9]\/[0-9]\/[0-9]{1,}-onu-[0-9]{1,}-ethernet-uni-[0-9]{1,}</value>
-                                <formulaid>A</formulaid>
                             </condition>
                         </conditions>
                     </filter>
-                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.&#13;
-&#13;
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>You may also consider using IF-MIB::ifType or IF-MIB::ifAlias for discovery depending on your filtering needs.
+
 {$SNMP_COMMUNITY} is a global macro.</description>
                     <item_prototypes>
                         <item_prototype>
+                            <uuid>ab601048b8fc40c5b68ce9d29a9c1f74</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Input Octets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfStatisticsInOctets.{#SNMPINDEX}</snmp_oid>
                             <key>onuifInOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>819a94503a1d4e1ab2278189245dc7e6</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Output Octets</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfStatisticsOutOctets.{#SNMPINDEX}</snmp_oid>
                             <key>onuifOutOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
                             <preprocessing>
                                 <step>
                                     <type>CHANGE_PER_SECOND</type>
-                                    <params/>
                                 </step>
                                 <step>
                                     <type>MULTIPLIER</type>
-                                    <params>8</params>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
                                 </step>
                             </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>fc6996bcd36c4f9ca7891a3cc32533a6</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Input Bandwidth Usage</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfStatisticsInBwUsage.{#SNMPINDEX}</snmp_oid>
                             <key>onuInBwUsage[{#SNMPINDEX}]</key>
                             <delay>15m</delay>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>89840e1f3b3047ebb492ab81e661fd83</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Output Bandwidth Usage</name>
-                            <type>SNMPV2</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <type>SNMP_AGENT</type>
                             <snmp_oid>onuIfStatisticsOutBwUsage.{#SNMPINDEX}</snmp_oid>
                             <key>onuOutBwUsage[{#SNMPINDEX}]</key>
                             <delay>15m</delay>
                             <units>bps</units>
-                            <applications>
-                                <application>
-                                    <name>ONU-Counter</name>
-                                </application>
-                            </applications>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>ONU-Counter</value>
+                                </tag>
+                            </tags>
                         </item_prototype>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
+                            <uuid>327245cf93044219b436433a8a04ada3</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Bandwidth traffic</name>
                             <graph_items>
                                 <graph_item>
@@ -443,58 +448,60 @@
                     </graph_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <valuemaps>
+                <valuemap>
+                    <uuid>c2ce9cf3c79a44599db1c2d26763cdd6</uuid>
+                    <name>SNMP interface status (ifAdminStatus)</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>up</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>down</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>testing</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>2a7cc0a1840f4f39902bb1f325bfe433</uuid>
+                    <name>SNMP interface status (ifOperStatus)</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>up</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>down</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>testing</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>dormant</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>notPresent</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>7</value>
+                            <newvalue>lowerLayerDown</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
         </template>
     </templates>
-    <value_maps>
-        <value_map>
-            <name>SNMP interface status (ifAdminStatus)</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>up</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>down</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>testing</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>SNMP interface status (ifOperStatus)</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>up</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>down</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>testing</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>unknown</newvalue>
-                </mapping>
-                <mapping>
-                    <value>5</value>
-                    <newvalue>dormant</newvalue>
-                </mapping>
-                <mapping>
-                    <value>6</value>
-                    <newvalue>notPresent</newvalue>
-                </mapping>
-                <mapping>
-                    <value>7</value>
-                    <newvalue>lowerLayerDown</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-    </value_maps>
 </zabbix_export>
