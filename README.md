@@ -2,7 +2,7 @@
 
 Zabbix templates for DmOS Datacom network equipments.
 
-These templates are tested in Zabbix 4.4.0 version and are supported in newer versions.
+These templates are tested in Zabbix 7.2.0 version and are supported in newer versions.
 
 To discovery process works it is necessary the MIB files in Zabbix. Please copy the MIB files
 from the equipment using the DmOS command named "copy mibs" and upload for your Zabbix server.
