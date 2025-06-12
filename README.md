@@ -118,3 +118,41 @@ Used for DATACOM DMOS-ONU-COUNTING-MIB for ONUs counting by ponlink and total.
 ##### Zabbix Discovery Macros:
 
 - {#PONIFDESCR} -PON description
+
+## Template DmOS-TRANSCEIVERS-MIB
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#OPTMDLSERIAL} Transceiver serial number
+
+- {#OPTMDLPN} Transceiver part number
+
+- {#OPTMDLWAVLENG} Transceiver laser wavelength
+
+- {#IFNAME} The textual name of the interface.
+
+- {#IFALIAS} This object is an 'alias' name for the interface as specified by a network manager, and
+provides a non-volatile 'handle' for the interface.
+
+- {#IFDESCR} A textual string containing information about the interface. This string should include
+the name of the manufacturer, the product name and the version of the interface hardware/software.
+
+## Template ICMP Probe
+
+##### Zabbix Macros:
+
+- {$SNMP_COMMUNITY} - SNMP community
+
+##### Zabbix Discovery Macros:
+
+- {#ICMP_PROBE_TARGET} This object indicates the type of address stored in the corresponding
+pingResultsIpTargetAddress object.
+
+- {#ICMP_PROBE_RESULTS_SENT} The value of this object reflects the number of probes sent for the
+corresponding pingCtlEntry and pingResultsEntry.
+
+- {#ICMP_PROBE_LAST_GOOD} Date and time when the last response was received for a probe.
