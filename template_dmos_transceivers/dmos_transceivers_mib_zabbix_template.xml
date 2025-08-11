@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
+            <name>DM - Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>3ef4cf8a063443bbb494077563563645</uuid>
+            <template>DM Template - DmOS Transceivers</template>
+            <name>DM Template - DmOS Transceivers</name>
+            <groups>
+                <group>
+                    <name>DM - Templates</name>
+                </group>
+            </groups>
+            <discovery_rules>
+                <discovery_rule>
+                    <uuid>ad5366401e734d6fbfdb4b976353f687</uuid>
+                    <name>DmOS Transceivers</name>
+                    <type>EXTERNAL</type>
+                    <key>dmos_transceivers_mib.py[&quot;{HOST.CONN}&quot;, &quot;{$SNMP_COMMUNITY}&quot;]</key>
+                    <delay>60m</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>5b92801bb0624fb5bf7cdb810edd1065</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Operational Status</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>ifOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInterfaceOperStatus.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>730d</history>
+                            <valuemap>
+                                <name>IF-MIB::ifOperStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Status</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>d98938cd1bda445b92d1d9c154132cb1</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Laser Wavelength</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoLaserWavelength.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryLaserWavelength.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>TEXT</value_type>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>61a059bb29804b0c921627f84c01d64e</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryRxSignalHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>c6ebbaf3468645678b679b2c8e2647be</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryRxSignalLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>7f21eea6840d4fb497160faaaf7de288</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Warning High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryRxSignalWarningHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>efdbbe8889a84c838da51a38bf9928e6</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Warning Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryRxSignalWarningLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>2d3d8f6e540040eeb2922396c3e13b4e</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Alarm High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTempHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>ºC</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>133275d2430c4c37b97695ed26d97b0b</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Alarm Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTempLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>ºC</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>6412b127d3f44815958299292a929911</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Warnig High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTempWarningHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>ºC</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>7b95b947a79a437882bde170caef883b</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Warnig Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTempWarningLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>ºC</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>9ea2716bd611440596136b6f52a9f8e9</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTxSignalHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>88c4ae309efb442e8703ce8e66742a7b</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTxSignalLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>8fe4288f78c24014b10447c35b0cae8f</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Warning High</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTxSignalWarningHigh.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>3105d16c144f4f889b05305afe4b24b9</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Warning Low</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverInventoryTxSignalWarningLow.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>dBm</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Inventory</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>3b66fda2858e455eab6abddd68660605</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Rx Power Lane 1</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneRxPower.{#SNMPINDEX}.1</snmp_oid>
+                            <key>transceiverStatusLane1RxPower.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>dBm</units>
+                            <preprocessing>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <parameters>
+                                        <parameter>0.01</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Status</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>ba9b3caf2f604c36889eca98fc4c50da</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Tx Power Lane 1</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneTxPower.{#SNMPINDEX}.1</snmp_oid>
+                            <key>transceiverStatusLane1TxPower.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>dBm</units>
+                            <preprocessing>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <parameters>
+                                        <parameter>0.01</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Status</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>00312904a153482a901cc043aef7c227</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Lane Counter</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneCount.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverStatusLaneCount.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>730d</history>
+                            <trends>0</trends>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Status</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>e59f754dcfbf41599ae5ba40a5d6db85</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Temperature</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-TRANSCEIVER-MIB::temperature.{#SNMPINDEX}</snmp_oid>
+                            <key>transceiverStatusTemp.[{#SNMPINDEX}]</key>
+                            <delay>1d</delay>
+                            <history>730d</history>
+                            <value_type>FLOAT</value_type>
+                            <units>ºC</units>
+                            <preprocessing>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <parameters>
+                                        <parameter>0.01</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Transceiver Status</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <uuid>945478b4c0604f45b6686c1656b93851</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver  SN {#TCN_SN} RX Power Alert High Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>417d7bd6cc244f1fb3ad6b24ea5545f5</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} RX Power Alert Low Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>9fe2f0337f684028be29a1310ae3b525</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalWarningHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} RX Power Alert Warning High Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>018137708c7f4178aef1974459458602</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalWarningLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} RX Power Alert Warning Low Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>d24d7e5892564570a43796e4b72f26af</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusTemp.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTempHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} Temperature Alert High Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>ece5eff766444da89e254bae0dce7fe2</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusTemp.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTempLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} Temperature Alert Low Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>2dd2876fe9d14758909b34cb999223e6</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusTemp.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTempWarningLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} Temperature Alert Warning Low Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>8a74e804f1014033b8d7d5145aa389af</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1TxPower.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTxSignalHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} TX Power Alert High Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>b8b9099520be43a29567532bfb60c402</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1TxPower.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTxSignalLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} TX Power Alert Low Lane 1 on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>ed94b11fec8a45329f4b708e11646a7a</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1TxPower.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTxSignalWarningHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} TX Power Alert Warning High Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>ed29124a896f440197acfc0d55edf887</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1TxPower.[{#SNMPINDEX}])
+&lt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTxSignalWarningLow.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} TX Power Alert Warning Low Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>c07b474c6c2a4a73be14f63d63de0109</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IIFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} RX Power Alert High Lane 1 on {HOST.NAME} NEW</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <uuid>38fed1bff5254c65bfd47e39fea2d908</uuid>
+                            <expression>(
+last(/DM Template - DmOS Transceivers/transceiverStatusTemp.[{#SNMPINDEX}])
+&gt;
+last(/DM Template - DmOS Transceivers/transceiverInventoryTempWarningHigh.[{#SNMPINDEX}])
+)
+and
+last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
+                            <name>Interface {#IIFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} Temperature Alert Warning High Lane 1 on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <uuid>83b5d17ab4304566b5b1c1237c093924</uuid>
+                            <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} Tx/Rx Power Lane 1</name>
+                            <yaxismin>-45</yaxismin>
+                            <yaxismax>8</yaxismax>
+                            <ymin_type_1>FIXED</ymin_type_1>
+                            <ymax_type_1>FIXED</ymax_type_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>BOLD_LINE</drawtype>
+                                    <color>0040FF</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverStatusLane1RxPower.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>BOLD_LINE</drawtype>
+                                    <color>000000</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverStatusLane1TxPower.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <color>FF0000</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryRxSignalHigh.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <color>FF0000</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryRxSignalLow.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>5</sortorder>
+                                    <color>FFB300</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryRxSignalWarningHigh.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>6</sortorder>
+                                    <color>FFB300</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryRxSignalWarningLow.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>7</sortorder>
+                                    <color>FF0000</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryTxSignalHigh.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>8</sortorder>
+                                    <color>FF0000</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryTxSignalLow.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>9</sortorder>
+                                    <color>FFB300</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryTxSignalWarningHigh.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>10</sortorder>
+                                    <color>FFB300</color>
+                                    <item>
+                                        <host>DM Template - DmOS Transceivers</host>
+                                        <key>transceiverInventoryTxSignalWarningLow.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$SNMP_COMMUNITY}</macro>
+                    <value>public</value>
+                </macro>
+            </macros>
+            <valuemaps>
+                <valuemap>
+                    <uuid>45ce35d88e0d4c7f99ea2c858ea44a3f</uuid>
+                    <name>IF-MIB::ifOperStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>up</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>down</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>dormant</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>notPresent</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>7</value>
+                            <newvalue>lowerLayerDown</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
+        </template>
+    </templates>
+</zabbix_export>
