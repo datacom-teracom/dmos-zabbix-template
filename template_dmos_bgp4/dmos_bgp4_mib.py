@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 
-''' Script to discovery DMOS-BGP-4-MIB objects in Zabbix '''
+""" Script to discovery DMOS-BGP-4-MIB objects in Zabbix """
 
-from subprocess import Popen, DEVNULL, PIPE
+from subprocess import run
 from json import dumps
 from sys import argv
-from time import sleep
 from re import search
 from ipaddress import ip_address
 
 
 def convert_ipv6_snmp_hexa_decimal(ipv6_address):
-    ''' Function to convert IPv6 returned from SNMP in Hexadecimal to Decimal '''
+    """ Function to convert IPv6 returned from SNMP in Hexadecimal to Decimal """
 
     # split ipv6 by colon character
     aux = ipv6_address.split(':')
@@ -35,7 +34,7 @@ def convert_ipv6_snmp_hexa_decimal(ipv6_address):
 
 
 def convert_to_compress_ipv6(ipv6_address):
-    ''' Function to convert IPv6 returned from SNMP in Hexadecimal to compress format '''
+    """ Function to convert IPv6 returned from SNMP in Hexadecimal to compress format """
 
     # split ipv6 by colon character
     aux = ipv6_address.split(':')
@@ -62,24 +61,24 @@ def convert_to_compress_ipv6(ipv6_address):
     return ipv6
 
 def snmp_discovery_info(host, community, oid):
-    ''' Return SNMP discovery info '''
+    """ Return SNMP discovery info """
 
-    process = Popen(["snmpwalk", "-v", "2c", "-c", community, host, oid],
-                    stdout=PIPE, stderr=DEVNULL, universal_newlines=True)
+    cmd = f"snmpbulkwalk -v 2c -c {community} {host} {oid}"
+    process = run(cmd, shell=True, capture_output=True, text=True, timeout=30)
 
     snmp_info = []
     while True:
-        sleep(1)
-        return_code = process.poll()
+        return_code = process.returncode
         if return_code is not None:
-            for output in process.stdout.readlines():
+            for output in process.stdout.rstrip().split('\n'):
                 snmp_info.append(output.strip())
             break
+
     return snmp_info
 
 
 def main():
-    ''' Main function '''
+    """ Main function """
 
     host = argv[1]
     community = argv[2]
@@ -87,33 +86,39 @@ def main():
 
     snmp_info = snmp_discovery_info(host, community, oid)
 
-    number_peers = len(snmp_info)
-    jason_data = []
-    for i in range(number_peers):
-        regex = r'\.(ipv4|ipv6)\."(.*)".(.*)\.(unicast|mplsVpn)'
+    number_snmp_info = len(snmp_info)
+    json_data = []
+
+    if number_snmp_info == 1:
+        print('The equipment does not return SNMP objects')
+        exit(0)
+
+    for i in range(number_snmp_info):
+        object = {}
+
+        regex = r'\.(ipv4|ipv6)\.\"(.*)\".(.*)\.(unicast|mplsVpn)'
         output_regex = search(regex, snmp_info[i])
+
+        object['{#IP_ADDRESS_TYPE}'] = output_regex.group(1)
 
         if output_regex.group(1) == 'ipv6':
             ipv6_address_snmp = convert_ipv6_snmp_hexa_decimal(output_regex.group(2))
             ipv6_address = convert_to_compress_ipv6(output_regex.group(2))
 
-            jason_data.append(
-                {'{#IP_ADDRESS_TYPE}': output_regex.group(1),
-                 '{#IP_ADDRESS_SIZE}': '16',
-                 '{#IP_ADDRESS}': ipv6_address,
-                 '{#IP_ADDRESS_SNMP}': ipv6_address_snmp,
-                 '{#AFI}': output_regex.group(3),
-                 '{#SAFI}': output_regex.group(4)})
+            object['{#IP_ADDRESS_SIZE}'] = '16'
+            object['{#IP_ADDRESS}'] = ipv6_address
+            object['{#IP_ADDRESS_SNMP}'] = ipv6_address_snmp
         else:
-            jason_data.append(
-                {'{#IP_ADDRESS_TYPE}': output_regex.group(1),
-                 '{#IP_ADDRESS_SIZE}': '4',
-                 '{#IP_ADDRESS}': output_regex.group(2),
-                 '{#IP_ADDRESS_SNMP}': output_regex.group(2),
-                 '{#AFI}': output_regex.group(3),
-                 '{#SAFI}': output_regex.group(4)})
+            object['{#IP_ADDRESS_SIZE}'] = '4'
+            object['{#IP_ADDRESS}'] = output_regex.group(2)
+            object['{#IP_ADDRESS_SNMP}'] = output_regex.group(2)
 
-    print(dumps({"data": jason_data}, indent=4))
+        object['{#AFI}'] = output_regex.group(3)
+        object['{#SAFI}'] = output_regex.group(4)
+
+        json_data.append(object)
+
+    print(dumps({"data": json_data}, indent=4))
 
 
 main()

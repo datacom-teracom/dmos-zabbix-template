@@ -55,9 +55,9 @@ Used for all Datacom platforms and other vendors.
 - {#SAFI} - (SAFI) Subsequent Address Family Identifiers (e.g., unicast , mplsVpn)
 
 To discovery process works it is necessary upload the script file "dmos_bgp4_mib.py" to your Zabbix
-server in external scripts directory, also it is necessary the MIB file DMOS-BGP4-MIB.mib. Please
-copy the MIB file from the equipment using the DmOS command named "copy mibs" and upload for your
-Zabbix server.
+server in external scripts directory located on Ubuntu at "/usr/lib/zabbix/externalscripts/", also
+it is necessary the MIB file DMOS-BGP4-MIB.mib. Please copy the MIB file from the equipment using
+the DmOS command named "copy mibs" and upload for your Zabbix server.
 
 ## Template DmOS-EAPS-MIB
 
@@ -125,21 +125,18 @@ Used for DATACOM DMOS-ONU-COUNTING-MIB for ONUs counting by ponlink and total.
 
 - {$SNMP_COMMUNITY} - SNMP community
 
-##### Zabbix Discovery Macros:
+##### Zabbix Discovery Script Macros:
 
-- {#OPTMDLSERIAL} Transceiver serial number
+- {#SNMPINDEX} Interface index
 
-- {#OPTMDLPN} Transceiver part number
+- {#TCN_SN} Transceiver serial number
 
-- {#OPTMDLWAVLENG} Transceiver laser wavelength
+- {#IFALIAS} This object is an 'alias' name for the interface as specified by a network manager,
+and provides a non-volatile 'handle' for the interface.
 
-- {#IFNAME} The textual name of the interface.
-
-- {#IFALIAS} This object is an 'alias' name for the interface as specified by a network manager, and
-provides a non-volatile 'handle' for the interface.
-
-- {#IFDESCR} A textual string containing information about the interface. This string should include
-the name of the manufacturer, the product name and the version of the interface hardware/software.
+- {#IFDESCR} A textual string containing information about the interface. This string should
+include the name of the manufacturer, the product name and the version of the interface
+hardware/software.
 
 ## Template ICMP Probe
 
