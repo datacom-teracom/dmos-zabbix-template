@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.2</version>
+    <template_groups>
+        <template_group>
+            <uuid>85dcfb92cf3f48e7bb9089342e98559c</uuid>
+            <name>DM - Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>287ea59253a34a7ca72123019edb506c</uuid>
+            <template>DM Template - Datacom ICMP Probe</template>
+            <name>DM Template - Datacom ICMP Probe</name>
+            <groups>
+                <group>
+                    <name>DM - Templates</name>
+                </group>
+            </groups>
+            <discovery_rules>
+                <discovery_rule>
+                    <uuid>a352de7090af4fab8dd45d0498efbe37</uuid>
+                    <name>DM Template - Datacom ICMP Probe</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>discovery[{#ICMP_PROBE_TARGET},DATACOM-PING-MIB::pingResultsIpTargetAddress,{#ICMP_PROBE_RESULTS_SENT},DATACOM-PING-MIB::pingResultsSentProbes,{#ICMP_PROBE_LAST_GOOD},DATACOM-PING-MIB::pingResultsLastGoodProbe]</snmp_oid>
+                    <key>discovery.icmp.probe</key>
+                    <delay>1h</delay>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Discovering ICMP Probe configuration and results.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>fb903258bebb4b48af99fbc75b1c663d</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Current Average Ping Round-Trip-Time</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsAverageRtt.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsAverageRtt.[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>ad24d50d7b844d50b59dc3c655c87884</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Target Address</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsIpTargetAddress.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsIpTargetAddress.[{#SNMPINDEX}]</key>
+                            <value_type>CHAR</value_type>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>6e0e3aab6a5744c5ac952e6f751bffaf</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Target Address Type</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsIpTargetAddressType.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsIpTargetAddressType.[{#SNMPINDEX}]</key>
+                            <value_type>CHAR</value_type>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>85fd5e03256840bbba03ed9c9ab0feee</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Date and Time When The Last Response Was Received For A Probe</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsLastGoodProbe.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsLastGoodProbe.[{#SNMPINDEX}]</key>
+                            <value_type>CHAR</value_type>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>875a63be97f84ed1a4b883d4d47ba697</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Maximum Ping Round-Trip-Time</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsMaxRtt.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsMaxRtt.[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>03f6fcfe5e8e46c6854398b50ee2d30c</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Minimum Ping Round-Trip-Time Received</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsMinRtt.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsMinRtt[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>1149d119cd8b40db96e0e8f3081822e2</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Operational State</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsOperStatus.[{#SNMPINDEX}]</key>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>384a712931844e8ebdb10d7821d9519c</uuid>
+                                    <expression>last(/DM Template - Datacom ICMP Probe/pingResultsOperStatus.[{#SNMPINDEX}],#5)=0</expression>
+                                    <name>ICMP Probe State</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>05278e978bb74ec1abcafd76ed54f9ee</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Number Of Responses Received</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsProbeResponses.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsProbeResponses.[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>b6bf550bdaea458db2d998f325bef364</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Sum Of The Squares For All Ping Responses Received</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsRttSumOfSquares.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsRttSumOfSquares.[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>c48b8774202641398eb85603762164ed</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - Number Of Probes Sent</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DATACOM-PING-MIB::pingResultsSentProbes.{#SNMPINDEX}</snmp_oid>
+                            <key>pingResultsSentProbes.[{#SNMPINDEX}]</key>
+                        </item_prototype>
+                    </item_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <uuid>ab691f3fb8804263992d9482b0e3a355</uuid>
+                            <name>ICMP Probe - {#SNMPINDEX} - for IP {#ICMP_PROBE_TARGET} with {#ICMP_PROBE_RESULTS_SENT} probes</name>
+                            <show_work_period>NO</show_work_period>
+                            <show_triggers>NO</show_triggers>
+                            <graph_items>
+                                <graph_item>
+                                    <color>1A7C11</color>
+                                    <calc_fnc>MIN</calc_fnc>
+                                    <item>
+                                        <host>DM Template - Datacom ICMP Probe</host>
+                                        <key>pingResultsAverageRtt.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <color>274482</color>
+                                    <calc_fnc>MIN</calc_fnc>
+                                    <item>
+                                        <host>DM Template - Datacom ICMP Probe</host>
+                                        <key>pingResultsMaxRtt.[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <color>F63100</color>
+                                    <calc_fnc>MIN</calc_fnc>
+                                    <item>
+                                        <host>DM Template - Datacom ICMP Probe</host>
+                                        <key>pingResultsMinRtt[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <valuemaps>
+                <valuemap>
+                    <uuid>afb7a3f8fd3a474a983e7a6aeba06b9f</uuid>
+                    <name>ICMP Probe Operational State</name>
+                    <mappings>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Enable</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Disable</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Completed</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
+        </template>
+    </templates>
+</zabbix_export>

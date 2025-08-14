@@ -118,6 +118,45 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
+                    <uuid>28e112957e51430eaa18cfbdc87ffe78</uuid>
+                    <name>SNMP Discovery - PSU</name>
+                    <type>EXTERNAL</type>
+                    <key>dmos_hardware_monitor_mib_psu.py[&quot;{HOST.CONN}&quot;, &quot;{$SNMP_COMMUNITY}&quot;]</key>
+                    <delay>60m</delay>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>e62ebf9ebd1944a6ab60a8f4169b4558</uuid>
+                            <name>{#PSU_SLOT_NAME} Status</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>DMOS-HW-MONITOR-MIB::psuStatus.{#PSU_SLOT_NAME_LEN}.{#PSU_SLOT_NAME_DEC}</snmp_oid>
+                            <key>psuStatus.[{#PSU_SLOT_NAME}]</key>
+                            <delay>5m</delay>
+                            <valuemap>
+                                <name>DmOS-HW-MONITOR-MIB PSU Status</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>Hardware Monitor - PSU</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>e4347e8355e94cce86867421a4fba299</uuid>
+                                    <expression>last(/DM Template - DmOS/psuStatus.[{#PSU_SLOT_NAME}])&lt;&gt;0 and change(/DM Template - DmOS/psuStatus.[{#PSU_SLOT_NAME}])&gt;0</expression>
+                                    <name>{HOST.NAME} PSU Status Failed: {#PSU_SLOT_NAME}</name>
+                                    <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
+                                    <priority>HIGH</priority>
+                                    <description>{HOST.NAME} PSU Status Failed: {#PSU_SLOT_NAME}
+
+Trigger activate if PSU Status is different from OK (0) and difference between previous Status and actual Status is upper then 0.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
                     <uuid>ad6aec04561f4e1c814de8d2e836bff2</uuid>
                     <name>SNMP Discovery - CPU Cores</name>
                     <type>SNMP_AGENT</type>
@@ -613,7 +652,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - FAN</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -631,9 +670,18 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - FAN</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>3d1bf0ec0b244ac287fb31855de70725</uuid>
+                                    <expression>last(/DM Template - DmOS/fanSpeedReadError[{#SNMPINDEX}])&lt;&gt;2</expression>
+                                    <name>{HOST.NAME} FAN {#SNMPVALUE} Read Error</name>
+                                    <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>0972093fea884e26a7452f5036460845</uuid>
@@ -649,9 +697,18 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - FAN</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>95b474e27a8e4f61b4a9a43364a7d9e2</uuid>
+                                    <expression>last(/DM Template - DmOS/fanSpeedStatus[{#SNMPINDEX}])&lt;&gt;0</expression>
+                                    <name>{HOST.NAME} FAN {#SNMPVALUE} Status Error</name>
+                                    <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>9fc69cce18e84c1d85fa5efbdadb4d02</uuid>
@@ -665,7 +722,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - FAN</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -921,7 +978,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -937,7 +994,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -962,7 +1019,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -987,7 +1044,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -1012,7 +1069,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -1030,7 +1087,7 @@
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
-                                    <value>Hardware Monitor</value>
+                                    <value>Hardware Monitor - Sensors</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -1069,6 +1126,28 @@
                 </discovery_rule>
             </discovery_rules>
             <valuemaps>
+                <valuemap>
+                    <uuid>590e179e18904bf4a21562b734494688</uuid>
+                    <name>DmOS-HW-MONITOR-MIB PSU Status</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>Ok</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>Power Input Failure</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>Fuse Failure</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>Error</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
                 <valuemap>
                     <uuid>e4514a8c68da4fdcaca9e392dcda0e20</uuid>
                     <name>DmOS-HW-MONITOR Environment Sensor Status</name>

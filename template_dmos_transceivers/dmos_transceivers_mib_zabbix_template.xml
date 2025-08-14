@@ -504,19 +504,6 @@ last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDE
                             <manual_close>YES</manual_close>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <uuid>c07b474c6c2a4a73be14f63d63de0109</uuid>
-                            <expression>(
-last(/DM Template - DmOS Transceivers/transceiverStatusLane1RxPower.[{#SNMPINDEX}])
-&gt;
-last(/DM Template - DmOS Transceivers/transceiverInventoryRxSignalHigh.[{#SNMPINDEX}])
-)
-and
-last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDEX}])=1</expression>
-                            <name>Interface {#IIFDESCR}({#IFALIAS}): Transceiver SN {#TCN_SN} RX Power Alert High Lane 1 on {HOST.NAME} NEW</name>
-                            <priority>HIGH</priority>
-                            <manual_close>YES</manual_close>
-                        </trigger_prototype>
-                        <trigger_prototype>
                             <uuid>38fed1bff5254c65bfd47e39fea2d908</uuid>
                             <expression>(
 last(/DM Template - DmOS Transceivers/transceiverStatusTemp.[{#SNMPINDEX}])
@@ -626,12 +613,6 @@ last(/DM Template - DmOS Transceivers/transceiverInterfaceOperStatus.[{#SNMPINDE
                     </graph_prototypes>
                 </discovery_rule>
             </discovery_rules>
-            <macros>
-                <macro>
-                    <macro>{$SNMP_COMMUNITY}</macro>
-                    <value>public</value>
-                </macro>
-            </macros>
             <valuemaps>
                 <valuemap>
                     <uuid>45ce35d88e0d4c7f99ea2c858ea44a3f</uuid>
