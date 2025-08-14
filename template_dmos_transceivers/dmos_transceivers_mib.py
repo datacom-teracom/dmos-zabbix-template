@@ -5,7 +5,7 @@
 from subprocess import run
 from json import dumps
 from sys import argv
-from re import search
+from re import search, I
 
 
 def snmp_discovery_info(host, community, oid):
@@ -15,14 +15,20 @@ def snmp_discovery_info(host, community, oid):
     process = run(cmd, shell=True, capture_output=True, text=True, timeout=30)
 
     snmp_info = []
+    snmp_error = ''
     while True:
         return_code = process.returncode
         if return_code is not None:
             for output in process.stdout.rstrip().split('\n'):
+                if search(r'no such', output, I):
+                    snmp_error = output.strip()
+                    break
+                else:
+                    snmp_error = process.stderr.strip()
                 snmp_info.append(output.strip())
             break
 
-    return snmp_info
+    return snmp_info, snmp_error
 
 def snmp_get_info(host, community, oid, index):
     """ Return SNMP get info """
@@ -37,10 +43,16 @@ def snmp_get_info(host, community, oid, index):
                 regex = r'%s\.([0-9]{1,30})\s=\s[a-zA-Z0-9]{1,50}:(\s(.*))?$' % oid
                 output_regex = search(regex, output)
 
-                if output_regex.group(3) is None:
-                    snmp_info = ""
+                if output_regex:
+                    if output_regex.group(3) is None:
+                        # overwrite object value to empty value
+                        snmp_info = ""
+                    else:
+                        snmp_info = output_regex.group(3)
                 else:
-                    snmp_info = output_regex.group(3)
+                    # if object does not exist return empty value in macro
+                    snmp_info = ""
+
             break
 
     return snmp_info
@@ -54,12 +66,15 @@ def main():
     oid = 'DMOS-TRANSCEIVER-MIB::laneCount'
     snmp_info = snmp_discovery_info(host, community, oid)
 
-    number_snmp_info = len(snmp_info)
+    number_snmp_info = len(snmp_info[0])
     json_data = []
 
-    if number_snmp_info == 1:
-        print('The equipment does not return SNMP objects')
-        exit(0)
+    ret_error = snmp_info[1]
+    snmp_info = snmp_info[0]
+
+    if ret_error != '':
+        print(ret_error)
+        exit(1)
 
     for i in range(number_snmp_info):
         object = {}

@@ -5,7 +5,7 @@
 from subprocess import run
 from json import dumps
 from sys import argv
-from re import search
+from re import search, I
 from ipaddress import ip_address
 
 
@@ -31,7 +31,6 @@ def convert_ipv6_snmp_hexa_decimal(ipv6_address):
         index += 1
 
     return ipv6
-
 
 def convert_to_compress_ipv6(ipv6_address):
     """ Function to convert IPv6 returned from SNMP in Hexadecimal to compress format """
@@ -67,15 +66,20 @@ def snmp_discovery_info(host, community, oid):
     process = run(cmd, shell=True, capture_output=True, text=True, timeout=30)
 
     snmp_info = []
+    snmp_error = ''
     while True:
         return_code = process.returncode
         if return_code is not None:
             for output in process.stdout.rstrip().split('\n'):
+                if search(r'no such', output, I):
+                    snmp_error = output.strip()
+                    break
+                else:
+                    snmp_error = process.stderr.strip()
                 snmp_info.append(output.strip())
             break
 
-    return snmp_info
-
+    return snmp_info, snmp_error
 
 def main():
     """ Main function """
@@ -86,12 +90,15 @@ def main():
 
     snmp_info = snmp_discovery_info(host, community, oid)
 
-    number_snmp_info = len(snmp_info)
+    number_snmp_info = len(snmp_info[0])
     json_data = []
 
-    if number_snmp_info == 1:
-        print('The equipment does not return SNMP objects')
-        exit(0)
+    ret_error = snmp_info[1]
+    snmp_info = snmp_info[0]
+
+    if ret_error != '':
+        print(ret_error)
+        exit(1)
 
     for i in range(number_snmp_info):
         object = {}
