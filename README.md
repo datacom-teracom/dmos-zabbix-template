@@ -15,6 +15,17 @@ Used for General DmOS MIBs (SNMP System, CPU, Memory, FAN and Temperature).
 
 - {$SNMP_COMMUNITY} - SNMP community
 
+##### Zabbix Discovery Script Macros:
+
+- {#PSU_SLOT_NAME} - PSU SLOT/Name (e.g., 1/PSU1 or 1/PSU2)
+- {#PSU_SLOT_NAME_LEN} - PSU SLOT/Name value size (e.g., 6 for 1/PSU1)
+- {#PSU_SLOT_NAME_DEC} - PSU SLOT/Name in decimal format used by SNMP to get OIDs
+(e.g., 49.47.80.83.85.49 for 1/PSU1 )
+
+To discovery process works it is necessary upload the script file
+"dmos_hardware_monitor_mib_psu.py" to your Zabbix server in external scripts directory located
+on Ubuntu at "/usr/lib/zabbix/externalscripts/".
+
 ## Template Datacom IF-MIB
 
 Used for all Datacom platforms and other vendors.
@@ -137,6 +148,10 @@ and provides a non-volatile 'handle' for the interface.
 - {#IFDESCR} A textual string containing information about the interface. This string should
 include the name of the manufacturer, the product name and the version of the interface
 hardware/software.
+
+To discovery process works it is necessary upload the script file "dmos_transceivers_mib.py" to
+your Zabbix server in external scripts directory located on Ubuntu
+at "/usr/lib/zabbix/externalscripts/".
 
 ## Template ICMP Probe
 
