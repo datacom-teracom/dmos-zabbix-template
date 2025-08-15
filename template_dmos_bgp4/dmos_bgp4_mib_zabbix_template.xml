@@ -39,7 +39,7 @@
                             <uuid>0b74b49158ee47f398c72e1de25661cc</uuid>
                             <name>BGP In Accepted Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInAcceptedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersInAcceptedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersInAcceptedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -53,7 +53,7 @@
                             <uuid>01237fea9fcb4691b31644b93aa6f882</uuid>
                             <name>BGP In Active Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInActivePrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersInActivePrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersInActivePrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -67,7 +67,7 @@
                             <uuid>db2e8ac938c941278dd06431701bd497</uuid>
                             <name>BGP In Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersInPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersInPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -81,7 +81,7 @@
                             <uuid>df5f02101d904a44854277cc14bc4510</uuid>
                             <name>BGP In Prefixes Denied By Policer for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInPrefixesDeniedByPol.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersInPrefixesDeniedByPol.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersInPrefixesDeniedByPol.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -95,7 +95,7 @@
                             <uuid>e97f7bfb47bf41cdaad989fc346f7b65</uuid>
                             <name>BGP In Rejected Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersInRejectedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersInRejectedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersInRejectedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -109,7 +109,7 @@
                             <uuid>8fa9838d929d4fd5ab330f824ff70856</uuid>
                             <name>BGP Out Advertised Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutAdvertisedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersOutAdvertisedPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersOutAdvertisedPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -123,7 +123,7 @@
                             <uuid>7ec0fb092ec14c01b800b8e1ecf7d2b3</uuid>
                             <name>BGP Out Prefixes for Peer {#IP_ADDRESS} AFI {#AFI} SAFI {#SAFI}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-BGP4-MIB::bgpPrefixCountersOutPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}</snmp_oid>
+                            <snmp_oid>get[DMOS-BGP4-MIB::bgpPrefixCountersOutPrefixes.{#IP_ADDRESS_TYPE}.{#IP_ADDRESS_SIZE}.{#IP_ADDRESS_SNMP}.{#AFI}.{#SAFI}]</snmp_oid>
                             <key>bgpPrefixCountersOutPrefixes.[{#IP_ADDRESS}.{#AFI}.{#SAFI}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -212,7 +212,7 @@
                             <uuid>0d2052b54f0446dd9199b15460521341</uuid>
                             <name>BGP Established Transitions for Peer {#SNMPVALUE}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerFsmEstablishedTransitions.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerFsmEstablishedTransitions.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerFsmEstablishedTransitions.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -226,7 +226,7 @@
                             <uuid>7f4878d698d4484f97ee6b3b139eac16</uuid>
                             <name>BGP In Total Messages for Peer {#SNMPVALUE}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerInTotalMessages.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerInTotalMessages.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerInTotalMessages.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -240,7 +240,7 @@
                             <uuid>8a1faadf77824f26a0104f3b7a09a4a1</uuid>
                             <name>BGP In Updates for Peer {#SNMPVALUE}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerInUpdates.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerInUpdates.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerInUpdates.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -254,7 +254,7 @@
                             <uuid>d17cde45481c4f99a2afafe710f8f21a</uuid>
                             <name>BGP Out Total Messages for Peer {#SNMPVALUE}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerOutTotalMessages.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerOutTotalMessages.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerOutTotalMessages.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -268,7 +268,7 @@
                             <uuid>b3c8d724a3534254a5ca69b5d4130939</uuid>
                             <name>BGP Out Updates for Peer {#SNMPVALUE}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerOutUpdates.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerOutUpdates.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerOutUpdates.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -282,7 +282,7 @@
                             <uuid>6a2c1f7e4626458399322614b99ca7b2</uuid>
                             <name>BGP Peer {#SNMPVALUE} State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>BGP4-MIB::bgpPeerState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[BGP4-MIB::bgpPeerState.{#SNMPINDEX}]</snmp_oid>
                             <key>bgpPeerState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>

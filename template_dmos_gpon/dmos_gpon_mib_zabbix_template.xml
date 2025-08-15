@@ -7,7 +7,7 @@
             <name>DM - Templates</name>
         </template_group>
         <template_group>
-            <uuid>83761f47e4884f74a1c6851e01014167</uuid>
+            <uuid>90fc9cada07942e49a43856c9ec5e8d3</uuid>
             <name>DmOS</name>
         </template_group>
         <template_group>
@@ -57,7 +57,7 @@
                             <uuid>a6e307748b4b4bf6940466a68d284b8c</uuid>
                             <name>AdminStatus - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuifAdminStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuifAdminStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>onuifAdminStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
@@ -78,7 +78,7 @@
                             <uuid>60cf179687d84a9fa33183cf7d9e897a</uuid>
                             <name>Power RX - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfOnuPowerRx.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfOnuPowerRx.{#SNMPINDEX}]</snmp_oid>
                             <key>onuIfOnuPowerRx[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
@@ -106,7 +106,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerRx[{#SNMPINDEX}])&gt;-8.0</expression
                             <uuid>63ac2eafe8744ecd90c17d0c1c55e78f</uuid>
                             <name>Power TX - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfOnuPowerTx.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfOnuPowerTx.{#SNMPINDEX}]</snmp_oid>
                             <key>onuIfOnuPowerTx[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
@@ -135,7 +135,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>528e40b010f842f2a619d7b67835b38a</uuid>
                             <name>Status - ONU {#ONUIFDESCR}</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuifOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuifOperStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>onuifOperStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
@@ -169,7 +169,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>d2da81ba0c204ff482f568d2bf47cb64</uuid>
                             <name>Uptime - ONU {#ONUIFDESCR}({#ONUIFNAME})</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuSysUpTime.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuSysUpTime.{#SNMPINDEX}]</snmp_oid>
                             <key>onuSysUpTime[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>1w</history>
@@ -247,7 +247,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>6a95738c37b649efada775501d2a5e37</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): GEM Input Octets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuGemInOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuGemInOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>onuGemInOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
                             <preprocessing>
@@ -272,7 +272,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>d10076c5cae14124bd096217bb2ab8ee</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): GEM Output Octets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuGemOutOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuGemOutOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>onuGemOutOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
                             <preprocessing>
@@ -346,7 +346,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>ab601048b8fc40c5b68ce9d29a9c1f74</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Input Octets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfStatisticsInOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfStatisticsInOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>onuifInOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
                             <preprocessing>
@@ -371,7 +371,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>819a94503a1d4e1ab2278189245dc7e6</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Output Octets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfStatisticsOutOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfStatisticsOutOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>onuifOutOctets[{#SNMPINDEX}]</key>
                             <units>bps</units>
                             <preprocessing>
@@ -396,7 +396,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>fc6996bcd36c4f9ca7891a3cc32533a6</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Input Bandwidth Usage</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfStatisticsInBwUsage.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfStatisticsInBwUsage.{#SNMPINDEX}]</snmp_oid>
                             <key>onuInBwUsage[{#SNMPINDEX}]</key>
                             <delay>15m</delay>
                             <units>bps</units>
@@ -411,7 +411,7 @@ last(/DM Template - DmOS GPON/onuIfOnuPowerTx[{#SNMPINDEX}])&lt;-0.5</expression
                             <uuid>89840e1f3b3047ebb492ab81e661fd83</uuid>
                             <name>ONU {#ONUIFDESCR}({#ONUIFNAME}): Output Bandwidth Usage</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>onuIfStatisticsOutBwUsage.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[onuIfStatisticsOutBwUsage.{#SNMPINDEX}]</snmp_oid>
                             <key>onuOutBwUsage[{#SNMPINDEX}]</key>
                             <delay>15m</delay>
                             <units>bps</units>

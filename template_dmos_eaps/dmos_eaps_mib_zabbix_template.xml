@@ -40,7 +40,7 @@
                             <uuid>0b18078e7cf6445eb50de55bf2ffc73c</uuid>
                             <name>EAPS  {#EAPS_ID} Healt Check State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainHealthCheckState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainHealthCheckState.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainHealthCheckState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -57,7 +57,7 @@
                             <uuid>975af9507c724ce1a24b3008e0ce93ad</uuid>
                             <name>EAPS  {#EAPS_ID} Domain ID</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainID.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainID.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainID.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -71,7 +71,7 @@
                             <uuid>0ba08fcf683d45e388c1ace788d13890</uuid>
                             <name>EAPS  {#EAPS_ID} Domain Mode</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainMode.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainMode.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainMode.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -88,7 +88,7 @@
                             <uuid>6e0a1d6b7fd1494585df336868c08b84</uuid>
                             <name>EAPS {#EAPS_ID} Domain Name</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainName.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainName.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainName.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <value_type>TEXT</value_type>
@@ -103,7 +103,7 @@
                             <uuid>553410f9b52a496baf34ffb0733f8387</uuid>
                             <name>EAPS  {#EAPS_ID} Domain Primary Port State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainPrimaryPortState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainPrimaryPortState.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainPrimaryPortState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -120,7 +120,7 @@
                             <uuid>24699076ad6d470fb1ee44515a26785f</uuid>
                             <name>EAPS {#EAPS_ID} Domain Secondary Port State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainSecondaryPortState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainSecondaryPortState.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainSecondaryPortState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -137,7 +137,7 @@
                             <uuid>1c9fd3032bfa44dead55429b2847be18</uuid>
                             <name>EAPS  {#EAPS_ID} Domain State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-EAPS::eapsDomainState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-EAPS::eapsDomainState.{#SNMPINDEX}]</snmp_oid>
                             <key>eapsDomainState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>

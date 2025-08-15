@@ -31,7 +31,7 @@
                             <uuid>5b92801bb0624fb5bf7cdb810edd1065</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Operational Status</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOperStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInterfaceOperStatus.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>730d</history>
@@ -49,7 +49,7 @@
                             <uuid>d98938cd1bda445b92d1d9c154132cb1</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Laser Wavelength</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoLaserWavelength.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoLaserWavelength.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryLaserWavelength.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -65,7 +65,7 @@
                             <uuid>61a059bb29804b0c921627f84c01d64e</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryRxSignalHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -82,7 +82,7 @@
                             <uuid>c6ebbaf3468645678b679b2c8e2647be</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsAlarmLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryRxSignalLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -99,7 +99,7 @@
                             <uuid>7f21eea6840d4fb497160faaaf7de288</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Warning High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryRxSignalWarningHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -116,7 +116,7 @@
                             <uuid>efdbbe8889a84c838da51a38bf9928e6</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} RX Signal Warning Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoRxPowerThresholdsWarningLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryRxSignalWarningLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -133,7 +133,7 @@
                             <uuid>2d3d8f6e540040eeb2922396c3e13b4e</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Alarm High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTempHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -150,7 +150,7 @@
                             <uuid>133275d2430c4c37b97695ed26d97b0b</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Alarm Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsAlarmLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTempLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -167,7 +167,7 @@
                             <uuid>6412b127d3f44815958299292a929911</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Warnig High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTempWarningHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -184,7 +184,7 @@
                             <uuid>7b95b947a79a437882bde170caef883b</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} Temperature Warnig Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTemperatureThresholdsWarningLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTempWarningLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -201,7 +201,7 @@
                             <uuid>9ea2716bd611440596136b6f52a9f8e9</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTxSignalHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -218,7 +218,7 @@
                             <uuid>88c4ae309efb442e8703ce8e66742a7b</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsAlarmLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTxSignalLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -235,7 +235,7 @@
                             <uuid>8fe4288f78c24014b10447c35b0cae8f</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Warning High</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningHigh.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningHigh.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTxSignalWarningHigh.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -252,7 +252,7 @@
                             <uuid>3105d16c144f4f889b05305afe4b24b9</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Inventory SN {#TCN_SN} TX Signal Warning Low</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningLow.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-INVENTORY-MIB::transceiverInventoryInfoTxPowerThresholdsWarningLow.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverInventoryTxSignalWarningLow.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
@@ -269,7 +269,7 @@
                             <uuid>3b66fda2858e455eab6abddd68660605</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Rx Power Lane 1</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneRxPower.{#SNMPINDEX}.1</snmp_oid>
+                            <snmp_oid>get[DMOS-TRANSCEIVER-MIB::laneRxPower.{#SNMPINDEX}.1]</snmp_oid>
                             <key>transceiverStatusLane1RxPower.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>730d</history>
@@ -295,7 +295,7 @@
                             <uuid>ba9b3caf2f604c36889eca98fc4c50da</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Tx Power Lane 1</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneTxPower.{#SNMPINDEX}.1</snmp_oid>
+                            <snmp_oid>get[DMOS-TRANSCEIVER-MIB::laneTxPower.{#SNMPINDEX}.1]</snmp_oid>
                             <key>transceiverStatusLane1TxPower.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>730d</history>
@@ -321,7 +321,7 @@
                             <uuid>00312904a153482a901cc043aef7c227</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Lane Counter</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-TRANSCEIVER-MIB::laneCount.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-TRANSCEIVER-MIB::laneCount.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverStatusLaneCount.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>730d</history>
@@ -337,7 +337,7 @@
                             <uuid>e59f754dcfbf41599ae5ba40a5d6db85</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Transceiver Status SN {#TCN_SN} Temperature</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-TRANSCEIVER-MIB::temperature.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-TRANSCEIVER-MIB::temperature.{#SNMPINDEX}]</snmp_oid>
                             <key>transceiverStatusTemp.[{#SNMPINDEX}]</key>
                             <delay>1d</delay>
                             <history>730d</history>
