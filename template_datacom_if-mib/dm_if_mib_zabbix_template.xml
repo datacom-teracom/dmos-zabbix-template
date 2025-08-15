@@ -60,7 +60,7 @@
                             <uuid>c1ae066f29e5487aab3bfd58e9eaf3b7</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Bits received</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifHCInOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifHCInOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifHCInOctets.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <units>bps</units>
@@ -86,7 +86,7 @@
                             <uuid>a45471565be64083a5e1d5c15492b518</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Bits sent</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifHCOutOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifHCOutOctets.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifHCOutOctets.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <units>bps</units>
@@ -112,7 +112,7 @@
                             <uuid>25df7996eb454ad4ae411eea6b0d18a9</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Speed</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifHighSpeed.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifHighSpeed.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifHighSpeed.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>0</trends>
@@ -136,7 +136,7 @@
                             <uuid>066a36d913404260bea44f737f6859a7</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound broadcast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifInBroadcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifInBroadcastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifInBroadcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -155,7 +155,7 @@
                             <uuid>3fc2a2010f8f493397ff16e811881824</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound packets discarded</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifInDiscards.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifInDiscards.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifInDiscards.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -174,7 +174,7 @@
                             <uuid>23ddb5d24a294bf08fc63b2b7aa1f738</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound packets with errors</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifInErrors.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifInErrors.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifInErrors.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -193,7 +193,7 @@
                             <uuid>274097998bb44042b8399a33dc911158</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound multicast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifInMulticastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifInMulticastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifInMulticastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -212,7 +212,7 @@
                             <uuid>bfb80211a43246e3bf465953215189c6</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Inbound unicast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifInUcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifInUcastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifInUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -231,7 +231,7 @@
                             <uuid>fa7263b8fa1249778f173751a2679069</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Operational Status</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOperStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOperStatus.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>0</trends>
@@ -267,7 +267,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <uuid>7bcd47f57b5a4357b6134688a7b475dc</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound broadcast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOutBroadcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOutBroadcastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOutBroadcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -286,7 +286,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <uuid>4e6ce93b536b4b76a985c3014017a9b1</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound packets discarded</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOutDiscards.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOutDiscards.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOutDiscards.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -305,7 +305,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <uuid>0da7038b64d34d5a8fd655f0ef043025</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound packets with errors</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOutErrors.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOutErrors.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOutErrors.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -324,7 +324,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <uuid>97e075f050654aa499aead9cc4dd2507</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound multicast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOutMulticastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOutMulticastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOutMulticastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>
@@ -343,7 +343,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             <uuid>2248252cdd8248d48e3b44acce2a99e6</uuid>
                             <name>Interface {#IFDESCR}({#IFALIAS}): Outbound unicast packets</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>ifOutUcastPkts.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[ifOutUcastPkts.{#SNMPINDEX}]</snmp_oid>
                             <key>net.if[ifOutUcastPkts.{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <preprocessing>

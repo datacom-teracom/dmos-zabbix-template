@@ -32,14 +32,14 @@
                             <uuid>fb903258bebb4b48af99fbc75b1c663d</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Current Average Ping Round-Trip-Time</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsAverageRtt.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsAverageRtt.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsAverageRtt.[{#SNMPINDEX}]</key>
                         </item_prototype>
                         <item_prototype>
                             <uuid>ad24d50d7b844d50b59dc3c655c87884</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Target Address</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsIpTargetAddress.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsIpTargetAddress.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsIpTargetAddress.[{#SNMPINDEX}]</key>
                             <value_type>CHAR</value_type>
                         </item_prototype>
@@ -47,7 +47,7 @@
                             <uuid>6e0e3aab6a5744c5ac952e6f751bffaf</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Target Address Type</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsIpTargetAddressType.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsIpTargetAddressType.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsIpTargetAddressType.[{#SNMPINDEX}]</key>
                             <value_type>CHAR</value_type>
                         </item_prototype>
@@ -55,7 +55,7 @@
                             <uuid>85fd5e03256840bbba03ed9c9ab0feee</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Date and Time When The Last Response Was Received For A Probe</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsLastGoodProbe.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsLastGoodProbe.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsLastGoodProbe.[{#SNMPINDEX}]</key>
                             <value_type>CHAR</value_type>
                         </item_prototype>
@@ -63,21 +63,21 @@
                             <uuid>875a63be97f84ed1a4b883d4d47ba697</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Maximum Ping Round-Trip-Time</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsMaxRtt.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsMaxRtt.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsMaxRtt.[{#SNMPINDEX}]</key>
                         </item_prototype>
                         <item_prototype>
                             <uuid>03f6fcfe5e8e46c6854398b50ee2d30c</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Minimum Ping Round-Trip-Time Received</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsMinRtt.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsMinRtt.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsMinRtt[{#SNMPINDEX}]</key>
                         </item_prototype>
                         <item_prototype>
                             <uuid>1149d119cd8b40db96e0e8f3081822e2</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Operational State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsOperStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsOperStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsOperStatus.[{#SNMPINDEX}]</key>
                             <trigger_prototypes>
                                 <trigger_prototype>
@@ -92,21 +92,21 @@
                             <uuid>05278e978bb74ec1abcafd76ed54f9ee</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Number Of Responses Received</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsProbeResponses.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsProbeResponses.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsProbeResponses.[{#SNMPINDEX}]</key>
                         </item_prototype>
                         <item_prototype>
                             <uuid>b6bf550bdaea458db2d998f325bef364</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Sum Of The Squares For All Ping Responses Received</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsRttSumOfSquares.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsRttSumOfSquares.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsRttSumOfSquares.[{#SNMPINDEX}]</key>
                         </item_prototype>
                         <item_prototype>
                             <uuid>c48b8774202641398eb85603762164ed</uuid>
                             <name>ICMP Probe - {#SNMPINDEX} - Number Of Probes Sent</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DATACOM-PING-MIB::pingResultsSentProbes.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DATACOM-PING-MIB::pingResultsSentProbes.{#SNMPINDEX}]</snmp_oid>
                             <key>pingResultsSentProbes.[{#SNMPINDEX}]</key>
                         </item_prototype>
                     </item_prototypes>

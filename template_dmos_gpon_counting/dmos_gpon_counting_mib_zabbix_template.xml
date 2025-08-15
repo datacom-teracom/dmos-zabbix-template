@@ -7,7 +7,7 @@
             <name>DM - Templates</name>
         </template_group>
         <template_group>
-            <uuid>83761f47e4884f74a1c6851e01014167</uuid>
+            <uuid>90fc9cada07942e49a43856c9ec5e8d3</uuid>
             <name>DmOS</name>
         </template_group>
     </template_groups>
@@ -30,7 +30,7 @@
                     <uuid>1d4cc98b02164939b56df7c64285c22c</uuid>
                     <name>Global Down Onus</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfGlobalDownOnus.0</snmp_oid>
+                    <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfGlobalDownOnus.0]</snmp_oid>
                     <key>ponIfGlobalDownOnus</key>
                     <delay>10m</delay>
                     <history>90d</history>
@@ -45,7 +45,7 @@
                     <uuid>5fb0d6a2a7a74ab69c66bdc17b19ec41</uuid>
                     <name>Global Non Provisioned Onus</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfGlobalNonProvisionedOnus.0</snmp_oid>
+                    <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfGlobalNonProvisionedOnus.0]</snmp_oid>
                     <key>ponIfGlobalNonProvisionedOnus</key>
                     <delay>10m</delay>
                     <history>90d</history>
@@ -60,7 +60,7 @@
                     <uuid>caffa3cd50744c46bd9e461d4eb0aa74</uuid>
                     <name>Global Total Onus</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfGlobalTotalOnus.0</snmp_oid>
+                    <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfGlobalTotalOnus.0]</snmp_oid>
                     <key>ponIfGlobalTotalOnus</key>
                     <delay>10m</delay>
                     <history>90d</history>
@@ -75,7 +75,7 @@
                     <uuid>919e31efcea64054b672141c6118da83</uuid>
                     <name>Global Up Onus</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfGlobalUpOnus.0</snmp_oid>
+                    <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfGlobalUpOnus.0]</snmp_oid>
                     <key>ponIfGlobalUpOnus</key>
                     <delay>10m</delay>
                     <history>90d</history>
@@ -103,7 +103,7 @@
                             <uuid>58addc1c64cf46dba0dd03a9304f1589</uuid>
                             <name>PON {#PONIFDESCR}: Down Onus</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfDownOnus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfDownOnus.{#SNMPINDEX}]</snmp_oid>
                             <key>pon.if[ponIfDownOnus.{#SNMPINDEX}]</key>
                             <delay>10m</delay>
                             <tags>
@@ -117,7 +117,7 @@
                             <uuid>88fd6dd121f14a66b8c5213cb736b775</uuid>
                             <name>PON {#PONIFDESCR}: Non Provisioned Onus</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfNonProvisionedOnus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfNonProvisionedOnus.{#SNMPINDEX}]</snmp_oid>
                             <key>pon.if[ponIfNonProvisionedOnus.{#SNMPINDEX}]</key>
                             <delay>10m</delay>
                             <tags>
@@ -131,7 +131,7 @@
                             <uuid>42d1217ed7a4480ab1addb8f659a6e9e</uuid>
                             <name>PON {#PONIFDESCR}: Total ONUs</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfTotalOnus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfTotalOnus.{#SNMPINDEX}]</snmp_oid>
                             <key>pon.if[ponIfTotalOnus.{#SNMPINDEX}]</key>
                             <delay>10m</delay>
                             <tags>
@@ -145,7 +145,7 @@
                             <uuid>1ddf5a94d1a341d78c075f2246ad8cb6</uuid>
                             <name>PON {#PONIFDESCR}: Up Onus</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ONU-COUNTING-MIB::ponIfUpOnus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ONU-COUNTING-MIB::ponIfUpOnus.{#SNMPINDEX}]</snmp_oid>
                             <key>pon.if[ponIfUpOnus.{#SNMPINDEX}]</key>
                             <delay>10m</delay>
                             <tags>

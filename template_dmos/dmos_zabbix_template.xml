@@ -22,7 +22,7 @@
                     <uuid>1be4ce9791d54069bcb7cbea974bb709</uuid>
                     <name>Device contact details</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>SNMPv2-MIB::sysContact.0</snmp_oid>
+                    <snmp_oid>get[SNMPv2-MIB::sysContact.0]</snmp_oid>
                     <key>sysContact</key>
                     <delay>60m</delay>
                     <history>7d</history>
@@ -40,7 +40,7 @@
                     <uuid>8a199ce2fe874a42ad6decf1780ca78c</uuid>
                     <name>Device description</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>SNMPv2-MIB::sysDescr.0</snmp_oid>
+                    <snmp_oid>get[SNMPv2-MIB::sysDescr.0]</snmp_oid>
                     <key>sysDescr</key>
                     <delay>60m</delay>
                     <history>7d</history>
@@ -58,7 +58,7 @@
                     <uuid>a06bad5c19c34f33bb47bf5bd4d502c7</uuid>
                     <name>Device location</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>SNMPv2-MIB::sysLocation.0</snmp_oid>
+                    <snmp_oid>get[SNMPv2-MIB::sysLocation.0]</snmp_oid>
                     <key>sysLocation</key>
                     <delay>60m</delay>
                     <history>7d</history>
@@ -76,7 +76,7 @@
                     <uuid>94ff72edd27f4b9ab6cffbad828c0a46</uuid>
                     <name>Device name</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>SNMPv2-MIB::sysName.0</snmp_oid>
+                    <snmp_oid>get[SNMPv2-MIB::sysName.0]</snmp_oid>
                     <key>sysName</key>
                     <delay>60m</delay>
                     <history>7d</history>
@@ -94,7 +94,7 @@
                     <uuid>2fcbe0e771e9486e9efab72e5957d635</uuid>
                     <name>Device uptime</name>
                     <type>SNMP_AGENT</type>
-                    <snmp_oid>SNMPv2-MIB::sysUpTime.0</snmp_oid>
+                    <snmp_oid>get[SNMPv2-MIB::sysUpTime.0]</snmp_oid>
                     <key>sysUpTime</key>
                     <delay>60m</delay>
                     <history>7d</history>
@@ -129,7 +129,7 @@
                             <uuid>e62ebf9ebd1944a6ab60a8f4169b4558</uuid>
                             <name>{#PSU_SLOT_NAME} Status</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::psuStatus.{#PSU_SLOT_NAME_LEN}.{#PSU_SLOT_NAME_DEC}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::psuStatus.{#PSU_SLOT_NAME_LEN}.{#PSU_SLOT_NAME_DEC}]</snmp_oid>
                             <key>psuStatus.[{#PSU_SLOT_NAME}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -170,7 +170,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>491c570661af443c9b49667188511c4d</uuid>
                             <name>Active CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesActive.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesActive.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesActive[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -196,7 +196,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>132383e9e55240dd8502a84de7c63deb</uuid>
                             <name>Interrupt CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesInterrupt.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesInterrupt.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesInterrupt[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -213,7 +213,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>05f2be6e985b436087e101c4d2207f0f</uuid>
                             <name>Nice CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesNice.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesNice.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesNIce[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -230,7 +230,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>c7853eed2ada40b39a120df1ab33f10e</uuid>
                             <name>Softirq CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSoftirq.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesSoftirq.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesSoftirq[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -247,7 +247,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>e333a496f208458ca44bef810ee0aeaa</uuid>
                             <name>System CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesSystem.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesSystem.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesSystem[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -264,7 +264,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>8099b51c69714c4ebd66aabc6eca5b6f</uuid>
                             <name>User CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesUser.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesUser.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesUser[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -281,7 +281,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>ca246c8e6622429da4107784ee03094e</uuid>
                             <name>Wait CPU core last 5 minutes</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreFiveMinutesWait.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreFiveMinutesWait.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreFiveMinutesWait[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -298,7 +298,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>613d71f6410d49f680bee481374deb70</uuid>
                             <name>Active CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteActive.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteActive.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteActive[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -314,7 +314,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>9f70fd1ffa7344ab990154e5d9d24e58</uuid>
                             <name>Interrupt CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteInterrupt.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteInterrupt.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteInterrupt[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -330,7 +330,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>ff7d3c90e25c4952ab939bea53f0ec33</uuid>
                             <name>Nice CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteNice.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteNice.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteNice[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -346,7 +346,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>e8129ecfdd0a4db8ac46258c76ba0c34</uuid>
                             <name>Softirq CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSoftirq.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteSoftirq.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteSoftirq[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -362,7 +362,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>744cff73fc9c42e387cec88cf936433d</uuid>
                             <name>System CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteSystem.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteSystem.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteSystem[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -378,7 +378,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>dd87dff25d2a41549a543c608a9b3744</uuid>
                             <name>User CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteUser.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteUser.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteUser[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -394,7 +394,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>c62128b6b9054fe4873ff2b957e7c299</uuid>
                             <name>Wait CPU core last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuCoreOneMinuteWait.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuCoreOneMinuteWait.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuCoreOneMinuteWait[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -586,7 +586,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>22d9889cec8747d6932c33d2edb5976c</uuid>
                             <name>Active CPU load last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::cpuLoadOneMinuteActive.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::cpuLoadOneMinuteActive.{#SNMPINDEX}]</snmp_oid>
                             <key>cpuLoadOneMinuteActive[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <trends>7d</trends>
@@ -660,7 +660,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>85c8b9c9371b47178c2e8d6099200c9b</uuid>
                             <name>FAN {#SNMPVALUE} Read Error</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedReadError.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::fanSpeedReadError.{#SNMPINDEX}]</snmp_oid>
                             <key>fanSpeedReadError[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -687,7 +687,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>0972093fea884e26a7452f5036460845</uuid>
                             <name>FAN {#SNMPVALUE} Status</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeedStatus.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::fanSpeedStatus.{#SNMPINDEX}]</snmp_oid>
                             <key>fanSpeedStatus[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -714,7 +714,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>9fc69cce18e84c1d85fa5efbdadb4d02</uuid>
                             <name>FAN {#SNMPVALUE} Speed</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::fanSpeed.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::fanSpeed.{#SNMPINDEX}]</snmp_oid>
                             <key>fanSpeed[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -757,7 +757,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>9d537e29460e428f9169a3d796a214ff</uuid>
                             <name>Available memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteAvailable.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteAvailable.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteAvailable[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -779,7 +779,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>edc7f012d8724b03aa20eb99de32e289</uuid>
                             <name>Buffered memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteBuffered.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteBuffered.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteBuffered[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -793,7 +793,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>df14fa98d534484ab321f998fb4c2c19</uuid>
                             <name>Cached memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteCached.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteCached.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteCached[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -807,7 +807,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>5ba5cdb21116499a8398dd8e54eb9b59</uuid>
                             <name>Free memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteFree.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteFree.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteFree[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -821,7 +821,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>9aa8523273394621b0f502293a0b9b94</uuid>
                             <name>Slab Reclaimed last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabRecl.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteSlabRecl.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteSlabRecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -835,7 +835,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>af8b261c3f1e4d3c85ad7479763ad55f</uuid>
                             <name>Slab Unreclaimed last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteSlabUnrecl.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteSlabUnrecl.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteSlabUnrecl[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -849,7 +849,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>f136f3ee130e4dec9daeda6b9ac64f53</uuid>
                             <name>Total memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteTotal.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteTotal.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteTotal[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -863,7 +863,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>e86ab2742a2d47339108916eb35f4548</uuid>
                             <name>Used memory last 1 minute</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-SYSMON-MIB::memoryOneMinuteUsed.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-SYSMON-MIB::memoryOneMinuteUsed.{#SNMPINDEX}]</snmp_oid>
                             <key>memoryOneMinuteUsed[{#SNMPINDEX}]</key>
                             <history>7d</history>
                             <tags>
@@ -961,7 +961,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>7241fac1bb4447c496804521b73b7696</uuid>
                             <name>Sensor {#SNMPVALUE} - Current Temperature</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorCurrentTemperature.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorCurrentTemperature.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorCurrentTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -986,7 +986,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>16d5cbdcfa1b4a92b7d65e73ac28411c</uuid>
                             <name>Sensor {#SNMPVALUE} - Description</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorDescription.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorDescription.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorDescription[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -1002,7 +1002,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>3bbfa7b76c244d97bdbe9a539fdf3a34</uuid>
                             <name>Sensor {#SNMPVALUE} - Hysteresis Temperature</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorHysteresis.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorHysteresis.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorHysteresis[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -1027,7 +1027,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>5dabcb3db4814f27a9de10582b703566</uuid>
                             <name>Sensor {#SNMPVALUE} - Max Temperature</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMaxTemperature.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorMaxTemperature.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorMaxTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -1052,7 +1052,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>71518956d93b4110b5233884274b3e49</uuid>
                             <name>Sensor {#SNMPVALUE} - Min Temperature</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorMinTemperature.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorMinTemperature.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorMinTemperature[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>
@@ -1077,7 +1077,7 @@ Trigger activate if PSU Status is different from OK (0) and difference between p
                             <uuid>8222bbb62050449fbffda137d90b32a3</uuid>
                             <name>Sensor {#SNMPVALUE} - Read Error</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-HW-MONITOR-MIB::temperatureSensorTemperatureReadError.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-HW-MONITOR-MIB::temperatureSensorTemperatureReadError.{#SNMPINDEX}]</snmp_oid>
                             <key>temperatureSensorTemperatureReadError[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <history>7d</history>

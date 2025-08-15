@@ -40,7 +40,7 @@
                             <uuid>9545416fbb174afb9d2651eeaaf2ffb7</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Control VLAN</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingControlVlan.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingControlVlan.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingControlVlan.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -54,7 +54,7 @@
                             <uuid>7a1b8ecfd2b647b3bfba26e8b2e0bdc8</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} ID</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingId.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingId.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingId.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <tags>
@@ -68,7 +68,7 @@
                             <uuid>4f551a3f069d4dc195e485aea5a40d80</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Name</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingName.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingName.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingName.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <value_type>TEXT</value_type>
@@ -83,7 +83,7 @@
                             <uuid>d6bce20f12dd474aac23364493d052d8</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Parent Ring</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingParentRing.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingParentRing.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingParentRing.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <value_type>TEXT</value_type>
@@ -98,7 +98,7 @@
                             <uuid>2c0c81328ad24fb889334554cf7d8d42</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort0.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort0.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <value_type>TEXT</value_type>
@@ -113,7 +113,7 @@
                             <uuid>6c36755f41aa4582a265cc008deb319d</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0 RPL Role</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0RplRole.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort0RplRole.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort0RplRole.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -130,7 +130,7 @@
                             <uuid>3e0eab10d6484494ab561b2fcaa7dc63</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port0 State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort0State.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort0State.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort0State.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -147,7 +147,7 @@
                             <uuid>09e768a303b240c89982b300a3ab383f</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort1.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort1.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <value_type>TEXT</value_type>
@@ -162,7 +162,7 @@
                             <uuid>1f62364679304de1baa1b0eb4b1f0c07</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1 RPL Role</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1RplRole.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort1RplRole.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort1RplRole.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -179,7 +179,7 @@
                             <uuid>b0004992f9df42a199afeadaf4a1e580</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Port1 State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingPort1State.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingPort1State.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingPort1State.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -196,7 +196,7 @@
                             <uuid>abda0b762df54bccad760b43afab9629</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} State</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingState.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingState.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingState.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
@@ -221,7 +221,7 @@
                             <uuid>b14d4684e0c044649d4c96acc3ebba6c</uuid>
                             <name>ERPS Ring {#ERPS_RING_ID} Type</name>
                             <type>SNMP_AGENT</type>
-                            <snmp_oid>DMOS-ERPS-MIB::erpsRingType.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>get[DMOS-ERPS-MIB::erpsRingType.{#SNMPINDEX}]</snmp_oid>
                             <key>erpsRingType.[{#SNMPINDEX}]</key>
                             <delay>5m</delay>
                             <valuemap>
